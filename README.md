@@ -10,6 +10,8 @@ blogging application with full stack setup
 4.in vs code add docker extension
 
 5.right click on docker-compose.yml file and select compose up(if option not there then try restarting the vs code after installing the docker extension).
+![image](https://user-images.githubusercontent.com/60126622/206146315-9a1b5e25-fb65-47f0-af62-96a5eef5a4f5.png)
+
 
 6.you can see the process running on diffrent docker containers in docker.(server DB)
 
