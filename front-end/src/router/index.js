@@ -18,6 +18,13 @@ const routes = [
     }
   },
   {
+    path: '/login',
+    name: 'login',
+    component: function () {
+      return import('../views/LoginView.vue')
+    } 
+  },
+  {
     path: '/blogWriting',
     name: 'blogWriting',
     // route level code-splitting
