@@ -1,5 +1,5 @@
 <template>
-    <div class="blankBlog">
+    <div class="blankBlog" @click="$emit('open-create-blog')">
         <img src="https://thumbs.dreamstime.com/b/writing-memo-line-icon-writing-memo-line-icon-edit-document-file-linear-style-sign-mobile-concept-web-design-paper-pen-166163490.jpg" alt="">
         <p>Blank DOCUMENT</p>
     </div>
@@ -7,6 +7,7 @@
   <script>
   export default {
   name: "BlankBlog",
+  emits:['open-create-blog']
 }
   </script>
   <style scoped>

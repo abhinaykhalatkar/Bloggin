@@ -10,6 +10,7 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-vue": "^2.23.1",
+    "gsap": "^3.11.3",
     "vue": "^3.2.45",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

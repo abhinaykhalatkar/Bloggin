@@ -1,7 +1,7 @@
 <template>
   <div class="blogWriting">
     <div class="blogsCreate">
-      <BlankBlog />
+      <BlankBlog @open-create-blog="$emit('open-create-in-blogWriting')"/>
       <div class="blogsDraft" v-for="draft in draftBlogs" v-bind:key="draft.id">
         <BlogsTile v-bind:details="draft" />
       </div>
@@ -46,6 +46,8 @@ export default {
   },
   props: {},
   methods: {},
+  emits:['open-create-in-blogWriting']
+
 };
 </script>
 <style>
