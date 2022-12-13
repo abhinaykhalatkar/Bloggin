@@ -1,6 +1,7 @@
 <template>
         <form  @submit="submitName">
         <input
+        v-model="name"
           type="text"
           name="name"
           class="question"
@@ -9,24 +10,34 @@
           autocomplete="off"
         />
         <label for="nme"><span>Project name?</span></label>
-        <input type="submit" value="Submit!"/>
-        <button class="btn" @click="$emit('cancel-template-selection')">Cancel </button>
+       <div class="btnDiv">
+        <Button v-if="(name!='')"  type='first' text="Next"/>
+        <Button  @click="$emit('cancel-template-selection')" type='second' text="Cancel"/>
+       </div>
       </form>
 </template>
 <script>
+import Button from '../Button.vue';
 export default {
   name: "Screen1",
-  emits: ['cancel-template-selection']}
+  data() {
+    return {
+      name:''
+    };
+  },
+  components:{
+    Button
+  },
+  methods:{
+    submitName(e){
+        e.preventDefault()
+        this.$emit('template-selection-menu',e)
+    }
+  },
+  emits: ['cancel-template-selection','template-selection-menu']}
   </script>
 <style scoped>
-.btn{
-  border: none;
-  background: #eee;
-  margin: 10px 0 0 0;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 22px;
-}
+
 input,
 span,
 label,
@@ -37,6 +48,7 @@ textarea {
   padding: 5px;
   border: none;
   font-size: 22px;
+  
 }
 
 textarea:focus,
@@ -138,7 +150,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #eee;
+    background-color: #eee;;
+    color: #110476;
 }
 
 input[type="submit"]:active {

@@ -1,18 +1,17 @@
 <template>
   <div class="componentHTML">
     <div class="componentBody">
-      <Screen1 v-if="false" @cancel-template-selection="$emit('cancel-template-selection')"/>
-      <Screen2/>
+      <Screen1 class="screen1" @template-selection-menu="nextScreen1"  @cancel-template-selection="$emit('cancel-template-selection')"/>
+      <Screen2 class="screen2" />
     </div>
   </div>
 </template>
 <script>
 
-
-import gsap  from 'gsap';
-import { CSSPlugin } from 'gsap/CSSPlugin';
 import Screen1 from './TemplateComponents/Screen1.vue'
 import Screen2 from './TemplateComponents/Screen2.vue';
+import gsap  from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 gsap.registerPlugin(CSSPlugin);
 export default {
   name: "TemplateSelector",
@@ -20,11 +19,25 @@ export default {
     Screen1,
     Screen2
   },
+  data() {
+    return {
+      currentScreen:1
+    };
+  },
   emits: ['cancel-template-selection'],
   methods:{
-    submitName(e){
-        e.preventDefault();
-        console.log('blog name submitted')
+    nextScreen1(){
+      const start=()=>{
+        this.slide('.screen2',true)
+      }
+      this.slide('.screen1',false,start)
+    },
+    slide(el,val, start=null) {
+      gsap.fromTo(
+        el,
+        { css: { width:`${val?0:'676px'}`} },
+        { css: { width:`${val?'676px':0}`, display:`${val?null:'none'}`}, onComplete: start, duration: 0.2 }
+      );
     },
     slideIn(el){
         gsap.fromTo(el,

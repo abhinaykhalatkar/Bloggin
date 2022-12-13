@@ -36,9 +36,14 @@
 </div>
 </template>
 <script>
-
+import Button from '../Button.vue';
 export default {
+
+
   name: "TemplateSelector",
+  components:{
+    Button
+  },
   mounted(){
     let sliderControl = document.querySelector(".slider-control");
 // slides informations
@@ -119,8 +124,8 @@ body {
 }
 
 .slider-ctr { 
- 
-  width: 700px;
+ width: 0;
+  /* width: 676px; */
   height: 440px;
   position: absolute;
   top: 50%;
@@ -219,16 +224,17 @@ body {
   left: 30px;
 }
 .slide .title {
+  top: 100px;
   font-size: 50px;
   margin-bottom: 2px;
-  color: white;
+  color: rgb(0, 0, 0);
   transition: 0.3s all cubic-bezier(0.65, 0.05, 0.36, 1) 0.45s;
   -webkit-clip-path: inset(0 0 0 100%);
   clip-path: inset(0 0 0 100%);
   font-weight: 400;
   letter-spacing: 10px;
   text-transform: uppercase;
-  position: relative;
+  position: fixed;
 }
 .slide .author {
   font-size: 16px;
