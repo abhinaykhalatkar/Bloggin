@@ -1,29 +1,14 @@
 <template>
  <div class="slider-ctr">
-  <figure class="slide"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/111167/img5.jpeg" alt="Sky"/>
-    <figcaption> 
-      <div class="title">Template 4</div>
-      <div class="author"></div>
-    </figcaption>
-  </figure>
-  <figure class="slide"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/111167/img1.jpeg" alt="River"/>
-    <figcaption> 
-      <div class="title">Template 3</div>
-      <div class="author"></div>
-    </figcaption>
-  </figure>
-  <figure class="slide"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/111167/img4.jpeg" alt="Rain"/>
-    <figcaption>
-      <div class="title">Template 2</div>
-      <div class="author"></div>
-    </figcaption>
-  </figure>
-  <figure class="slide text-on"><img src="./../../assets/Screen2Assets/template1.png" alt="Ocean"/>
-    <figcaption>
-      <div class="title">Template 1</div>
-      <div class="author"></div>
-    </figcaption>
-  </figure>
+
+    <figure v-for="template in templates" v-bind:class="[template.templateId===1?'text-on':'','slide']" v-bind:key="template.templateId">
+        <img v-bind:src="require('@/assets/Screen2Assets/' + template.templateImg )"  alt="not here" />
+        <figcaption>
+            <div class="title">{{template.templateName}}</div>
+            <div class="author"></div>
+        </figcaption>
+    </figure>
+
   <div class="slider-control">
     <div class="control prev disabled">
       <div class="icon ion-chevron-left" > &lt;</div>
@@ -33,22 +18,43 @@
       <div class="icon ion-chevron-right" > > </div>
     </div>
   </div>
+
+  <div class="buttonDiv">
+    <Button	type='second' text="Back"/>
+  <Button	type='first' text="Next"/>
+  </div>
 </div>
 </template>
 <script>
 import Button from '../Button.vue';
+
 export default {
-
-
   name: "TemplateSelector",
+  data() {
+    return {
+      currentTemplate:1,
+      templates:[
+      {templateId:1,templateImg:"template1.png",templateName:"Template 1"},
+      {templateId:2,templateImg:"img4.jpeg",templateName:"Template 2"},
+      {templateId:3,templateImg:"template1.png",templateName:"Template 3"},
+      {templateId:4,templateImg:"img4.jpeg",templateName:"Template 4"}]
+    };
+  },
   components:{
     Button
+  }
+  ,
+  methods:{
+    getImage(imagePath) {
+    return require(imagePath);
+  }
   },
-  mounted(){
+mounted(){
+    
     let sliderControl = document.querySelector(".slider-control");
 // slides informations
-let slides = document.querySelectorAll(".slide"),
-    slidesLength = slides.length;
+let slides = document.querySelectorAll(".slide");
+let slidesLength = slides.length;
 
 // slides array
 let slidesArr = [].slice.call(slides);
@@ -110,11 +116,11 @@ sliderControl.addEventListener("click", function(e){
   }
 
 });
-  }
+   }
 };
 </script>
 <style scoped>
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+
 html,
 body {
   height: 100%;
@@ -126,7 +132,7 @@ body {
 .slider-ctr { 
  width: 0;
   /* width: 676px; */
-  height: 440px;
+  height: 525px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -149,9 +155,9 @@ body {
 }
 
 .slider-control {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
+  position: inherit;
+  top: 90%;
+  left: 47.5%;
   width: 80px;
   overflow: hidden;
   border-radius: 3px;

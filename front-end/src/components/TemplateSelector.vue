@@ -2,7 +2,9 @@
   <div class="componentHTML">
     <div class="componentBody">
       <Screen1 class="screen1" @template-selection-menu="nextScreen1"  @cancel-template-selection="$emit('cancel-template-selection')"/>
+      <h3 v-if="this.templateSelector" class="screenTitle">Select Template</h3>
       <Screen2 class="screen2" />
+      <RedioButton leftText="free" rightText="paid" @redio-switched="redioCon"/>
     </div>
   </div>
 </template>
@@ -10,6 +12,7 @@
 
 import Screen1 from './TemplateComponents/Screen1.vue'
 import Screen2 from './TemplateComponents/Screen2.vue';
+import RedioButton from './RedioButton.vue';
 import gsap  from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 gsap.registerPlugin(CSSPlugin);
@@ -17,18 +20,26 @@ export default {
   name: "TemplateSelector",
   components: {
     Screen1,
-    Screen2
+    Screen2,
+    RedioButton
   },
+  //add back and next button function
   data() {
     return {
+      templateSelector:false,
       currentScreen:1
     };
   },
   emits: ['cancel-template-selection'],
   methods:{
+    redioCon(val){
+      console.log(val)
+    },
     nextScreen1(){
       const start=()=>{
-        this.slide('.screen2',true)
+        this.templateSelector=true;
+        this.slide('.screen2',true);
+        this.currentScreen=2;
       }
       this.slide('.screen1',false,start)
     },
@@ -54,6 +65,11 @@ export default {
 </script> 
 
 <style scoped>
+.screenTitle{
+  position: fixed;
+  top: 16%;
+  left: 19%;
+}
 .componentHTML {
   font-family: "Lora", sans-serif;
   width: 100%;
