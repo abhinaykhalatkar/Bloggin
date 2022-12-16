@@ -1,8 +1,8 @@
 <template>
 <div class="slider-ctr">
-    <RedioButton  class="redioBtn" leftText="free" rightText="paid" @redio-switched="redioCon"/>
+    <RedioButton  class="redioBtn" leftText="free" rightText="paid" @redio-switched="emitFreePaid"/>
     <RedioButton  class="redioBtn" leftText="For All" rightText="Selected User" @redio-switched="toggleAddUser"/>
-    <WhiteListBlock v-if="this.whiteListOn"/>
+    <WhiteListBlock v-if="this.whiteListOn" @update-white-list="updateWhiteList"/>
     
     <div class="buttonDiv">
     
@@ -22,8 +22,9 @@ export default{
 name:'screen3',
 data(){
 return {
-    whiteList:[],
+    isPaid:false,
     whiteListOn:false,
+    privacy:false
 }
 },
 components: {
@@ -31,8 +32,23 @@ components: {
     Button,WhiteListBlock
   },
   methods:{
-toggleAddUser(){
-    this.whiteListOn=!this.whiteListOn
+    updateWhiteList(list){
+        list.length>1?this.privacy=true:this.privacy=false;
+        
+    },
+    createProject(){
+
+    },
+    emitFreePaid(val){
+        this.isPaid=!this.isPaid;
+        console.log(val)
+    this.$emit('isPaid',val)
+
+    },
+toggleAddUser(val){
+    this.whiteListOn=!this.whiteListOn;
+    console.log(this.whiteListOn)
+    this.$emit('whitelistOn',val)
 },
 back(){
       const done=()=>{this.slide('.screen2',true);}
