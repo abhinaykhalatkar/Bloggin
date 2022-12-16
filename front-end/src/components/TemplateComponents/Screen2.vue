@@ -1,6 +1,6 @@
 <template>
  <div class="slider-ctr">
-
+  <h3  class="screenTitle">Select Template</h3>
     <figure v-for="template in templates" v-bind:class="[template.templateId===1?'text-on':'','slide']" v-bind:key="template.templateId">
         <img v-bind:src="require('@/assets/Screen2Assets/' + template.templateImg )"  alt="not here" />
         <figcaption>
@@ -20,24 +20,26 @@
   </div>
 
   <div class="buttonDiv">
-    <Button	type='second' text="Back"/>
-  <Button	type='first' text="Next"/>
+  <Button @click="back"	type='second' text="Back"/>
+  <Button	@click="next" style="margin-left: 410px" type='first' text="Next"/>
   </div>
 </div>
 </template>
 <script>
 import Button from '../Button.vue';
-
+import gsap  from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
+gsap.registerPlugin(CSSPlugin);
 export default {
   name: "TemplateSelector",
   data() {
     return {
       currentTemplate:1,
       templates:[
-      {templateId:1,templateImg:"template1.png",templateName:"Template 1"},
-      {templateId:2,templateImg:"img4.jpeg",templateName:"Template 2"},
-      {templateId:3,templateImg:"template1.png",templateName:"Template 3"},
-      {templateId:4,templateImg:"img4.jpeg",templateName:"Template 4"}]
+      {templateId:1,templateImg:"template1.png",templateName:"Template 4"},
+      {templateId:2,templateImg:"img4.jpeg",templateName:"Template 3"},
+      {templateId:3,templateImg:"template1.png",templateName:"Template 2"},
+      {templateId:4,templateImg:"img4.jpeg",templateName:"Template 1"}]
     };
   },
   components:{
@@ -45,9 +47,28 @@ export default {
   }
   ,
   methods:{
-    getImage(imagePath) {
-    return require(imagePath);
-  }
+    back(){
+      const done=()=>{this.slide('.screen1',true);}
+      this.slide('.screen2',false,done);
+    },
+    next(){
+      const done=()=>{this.slide('.screen3',true);}
+      gsap.fromTo(
+        '.screenTitle',
+        { css: {display:'block'} },
+        { css: {display:'none'}, duration: 0.2 }
+      );
+      this.slide('.screen2',false,done);
+
+    },
+  slide(el,val, start=null) {
+      gsap.fromTo(
+        el,
+        { css: { width:`${val?0:'676px'}`} },
+        { css: { width:`${val?'676px':0}`, display:`${val?'block':'none'}`}, onComplete: start, duration: 0.2 }
+      );
+    },
+
   },
 mounted(){
     
@@ -114,32 +135,36 @@ sliderControl.addEventListener("click", function(e){
     }
     
   }
-
+  this.currentTemplate=slideCurrent+1
+  console.log(this.currentTemplate)
 });
    }
 };
 </script>
 <style scoped>
-
-html,
-body {
-  height: 100%;
-  position: relative;
-  font-family: Roboto;
-  background: #f8f8f8;
+.screenTitle{
+  position: fixed;
+  top: 9%;
+  left: 19%;
+  display: none;
 }
+.buttonDiv{
+  position: inherit;
+  top: 88%;
+  width: 676px;
+}
+
 
 .slider-ctr { 
  width: 0;
   /* width: 676px; */
-  height: 525px;
+  height: 600px;
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   margin-top: -220px;
   margin-left: -350px;
   box-sizing: border-box;
-
   overflow: hidden;
 }
 .slider-ctr:after {
@@ -156,7 +181,7 @@ body {
 
 .slider-control {
   position: inherit;
-  top: 90%;
+  top: 80%;
   left: 47.5%;
   width: 80px;
   overflow: hidden;
@@ -230,7 +255,7 @@ body {
   left: 30px;
 }
 .slide .title {
-  top: 100px;
+  top: 14%;
   font-size: 50px;
   margin-bottom: 2px;
   color: rgb(0, 0, 0);

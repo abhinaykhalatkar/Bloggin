@@ -5,6 +5,7 @@
     <button :style="{'--color':`${colorSet}`}">{{text}}</button>
 </template>
 <script>
+
 import gsap  from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 gsap.registerPlugin(CSSPlugin);
@@ -19,6 +20,7 @@ data() {
   type:String,
    text:String
   },
+
   mounted(){
 
     if(this.$props.type=='first'){

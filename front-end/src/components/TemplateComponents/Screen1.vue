@@ -17,6 +17,9 @@
       </form>
 </template>
 <script>
+import gsap  from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
+gsap.registerPlugin(CSSPlugin);
 import Button from '../Button.vue';
 export default {
   name: "Screen1",
@@ -32,6 +35,11 @@ export default {
     submitName(e){
         e.preventDefault()
         this.$emit('template-selection-menu',e)
+        gsap.fromTo(
+        '.screenTitle',
+        { css: {display:'none'} },
+        { css: {display:'block'}, duration: 0.2 }
+      );
     }
   },
   emits: ['cancel-template-selection','template-selection-menu']}
