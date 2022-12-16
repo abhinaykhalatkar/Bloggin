@@ -2,30 +2,47 @@
     <div class="login">
     <form>
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <h1> Welcome to Bloggen!</h1>
+    <br/>
+    <br/>
+    <label for="uname"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="uname" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit">Login</button>
-    <span class="psw"> <a href="#">Forgot Password?</a></span>
+    
+    <Button type="first" text="Login"></Button>
+    <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
+                        
+     <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a> </router-link> </span>
+     
+
+
+
+
   </div>
 </form>
 </div>
 </template>
 
 <script scoped>
-export default {};
+import Button from '@/components/Button.vue';
+export default {
+components: {Button,
+ }
+
+};
 </script>
 
-<style>
+<style scoped>
 form {
+
   border: 3px solid #f1f1f1;
-  width: 25rem;
-  height: 18rem;
-  margin-left: 60rem;
-  margin-top: 6rem;
+  width: 38rem;
+    height: 28rem;
+  margin-left: 15rem;
+  margin-top: 8rem;
 }
 
 
@@ -33,13 +50,13 @@ form {
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 15px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
+/* Set a style for all buttons
 button {
   background-color: #04AA6D;
   color: white;
@@ -48,7 +65,7 @@ button {
   border: none;
   cursor: pointer;
   width: 40%;
-}
+} */
 
 /* Add a hover effect for buttons */
 button:hover {
