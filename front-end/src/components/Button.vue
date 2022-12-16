@@ -32,7 +32,7 @@ data() {
     }else {
         this.colorSet='#110476'
     }
-    console.log(this.colorSet)
+
   
 }
 }

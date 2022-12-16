@@ -37,7 +37,7 @@ export default {
         ? this.slideOut(".componentBody", this.done)
         : (this.templateSelectorOpen = !this.templateSelectorOpen);
       this.backDropActive = !this.backDropActive;
-      this.$store.dispatch("setProjectName");
+      this.$store.dispatch("setProjectName")
     },
     done() {
       this.templateSelectorOpen = false;

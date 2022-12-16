@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       templateSelector:false,
-     
+      
 
     };
   },
@@ -58,7 +58,6 @@ export default {
       },
   },
   mounted() {
-  console.log('mounted')
   this.slideIn('.componentBody');
   },
 };

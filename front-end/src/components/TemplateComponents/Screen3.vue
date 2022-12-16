@@ -7,7 +7,7 @@
     <div class="buttonDiv">
     
   <Button @click="back"	type='second' text="Back"/>
-  <Button @click="createProject"	style="margin-left: 410px" type='first' text="Done"/>
+  <Button @click="createProject" style="margin-left: 410px" type='first' text="Done"/>
   </div>
 </div>
 </template>
@@ -34,10 +34,9 @@ components: {
   methods:{
     updateWhiteList(list){
         list.length>1?this.privacy=true:this.privacy=false;
-        
     },
     createProject(){
-
+        
     },
     emitFreePaid(val){
         this.isPaid=!this.isPaid;
