@@ -13,7 +13,7 @@ export default {
 name:'Button',
 data() {
     return {
-      colorSet:'#110476'
+      colorSet:'#060074'
     };
   },
   props: {
@@ -25,15 +25,15 @@ data() {
 
     if(this.$props.type=='first'){
         this.colorSet='#110476'
-    }else if(this.$props.type=='second'){
+    } else if(this.$props.type=='second'){
         this.colorSet='#EB6440'
-    }else if(this.$props.type=='third'){
+    } else if(this.$props.type=='third'){
         this.colorSet='#EFF5F5'
-    }else {
+    } else if (this.$props.type == 'four') {
+      this.colorSet = '#06007475'
+    } else {
         this.colorSet='#110476'
     }
-
-  
 }
 }
 </script>
