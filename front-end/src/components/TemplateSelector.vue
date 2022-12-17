@@ -29,8 +29,6 @@ export default {
   data() {
     return {
       templateSelector:false,
-      
-
     };
   },
   emits: ['cancel-template-selection'],

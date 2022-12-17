@@ -22,7 +22,10 @@ export default {
     },
     methods: {
         addUsers(arrayOfUsers) {
-            this.whiteList = [...arrayOfUsers];
+            let newUsersArray=arrayOfUsers.length>0?arrayOfUsers.map(el=>el.title):[];
+            
+            this.whiteList = [...newUsersArray];
+            console.log(this.whiteList);
         }
         ,
 
@@ -143,23 +146,11 @@ export default {
                 e.target.parentElement.remove();
                 deleteTaskFromLocalStorage(e.target.parentElement.getAttribute("data-id"));
             }
-            if (e.target.classList.contains("task")) {
-                e.target.classList.toggle("done");
-                updateStatusInLocalStorage(e.target.getAttribute("data-id"));
-            }
         })
 
 
         function deleteTaskFromLocalStorage(taskId) {
             arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
-            addTaskToLocalStorage(arrayOfTasks);
-        }
-        function updateStatusInLocalStorage(taskId) {
-            arrayOfTasks.forEach((task) => {
-                if (task.id == taskId)
-                    task.complated == false ? task.complated = true : task.complated = false;
-            });
-
             addTaskToLocalStorage(arrayOfTasks);
         }
 
@@ -177,8 +168,10 @@ export default {
 </script>
 <style>
 .container23 {
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
     width: 500px;
-    margin: 20px auto;
+    margin:  auto;
+    padding-bottom: 15px;
 }
 
 .form {
