@@ -18,3 +18,5 @@ blogging application with full stack setup
 7.for front end , start it normally from front end folder with 'npm run start'.
 
 PS: initial installation takes time.
+
+Virendra
