@@ -7,7 +7,7 @@ import Email from "../views/Email";
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
