@@ -1,7 +1,8 @@
 <template>
     <div class="login">
-    <form>
+    
   <div class="container">
+    <form>
     <h1> Welcome to Bloggen!</h1>
     <br/>
     <br/>
@@ -19,10 +20,13 @@
      
 
 
-
+    </form>
+    <img class="loginImage" :src="require('@/assets/aboutUs/loginImage.jpg')" alt="Placeholder image">
 
   </div>
-</form>
+
+
+
 </div>
 </template>
 
@@ -56,16 +60,6 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 40%;
-} */
 
 /* Add a hover effect for buttons */
 button:hover {
@@ -111,5 +105,13 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+
+  .loginImage{
+    width: 10%;
+    height: 40%;
+    margin-top: 8rem;
 }
+
+  }
+
 </style>

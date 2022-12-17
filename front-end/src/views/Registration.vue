@@ -70,7 +70,7 @@ form {
     border: 3px solid #f1f1f1;
     width: 40rem;
     height: 45rem;
-    margin-left: 1rem;
+    margin-left: 15rem;
     margin-top: 8rem;
 }
 .container1{
