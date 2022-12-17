@@ -19,4 +19,3 @@ blogging application with full stack setup
 
 PS: initial installation takes time.
 
-Virendra

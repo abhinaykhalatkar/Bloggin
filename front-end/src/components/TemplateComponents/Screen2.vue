@@ -158,7 +158,7 @@ sliderControl.addEventListener("click", function(e){
 .slider-ctr { 
  width: 0;
   /* width: 676px; */
-  height: 600px;
+  height: 90%;
   position: absolute;
   top: 42%;
   left: 50%;

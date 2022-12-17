@@ -4,7 +4,7 @@
     <Navigation/>
   </div>
   <TemplateSelector
-    v-if="this.templateSelectorOpen"
+    v-if="this.templateSelectorMenuOpen"
     @cancel-template-selection="toggleTemplateSelector"
   />
   <router-view @open-create-in-blogWriting="toggleTemplateSelector" />
@@ -30,19 +30,21 @@ export default {
   data() {
     return {
       backDropActive: false,
-      templateSelectorOpen: false,
+      templateSelectorMenuOpen: false,
     };
   },
   methods: {
     toggleTemplateSelector() {
-      this.templateSelectorOpen
+      this.templateSelectorMenuOpen
         ? this.slideOut(".componentBody", this.done)
-        : (this.templateSelectorOpen = !this.templateSelectorOpen);
+        : this.templateSelectorMenuOpen = !this.templateSelectorMenuOpen;
       this.backDropActive = !this.backDropActive;
-      this.$store.dispatch("setProjectName")
+      // this.$store.dispatch("setProjectName")
+      
     },
     done() {
-      this.templateSelectorOpen = false;
+      this.templateSelectorMenuOpen = false;
+      this.$store.commit('clearCurrentDraftState')
     },
     slideOut(el, done) {
       gsap.fromTo(
