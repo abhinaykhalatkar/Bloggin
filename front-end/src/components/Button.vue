@@ -24,7 +24,7 @@ data() {
   mounted(){
 
     if(this.$props.type=='first'){
-        this.colorSet='#110476'
+        this.colorSet='#06007475'
     } else if(this.$props.type=='second'){
         this.colorSet='#EB6440'
     } else if(this.$props.type=='third'){

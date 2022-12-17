@@ -3,7 +3,8 @@
   <div class="header-container">
     <img class="header-img" src="../assets/Logo/Home.png" alt="">
     <div class="search stack-top">
-      <Button type='four' text="Write Blog" />
+      <router-link class="link" to="/blogWriting"><Button type='four' text="Write Blog" /></router-link>
+
     </div>
     <!-- <BlogList> -->
   </div>

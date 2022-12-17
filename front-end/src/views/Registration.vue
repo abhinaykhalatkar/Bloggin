@@ -13,10 +13,10 @@
 
                     <div class="container">
                         <label for="exampleInputName">Name</label>
-                        <input type="text" class="form-control" id="Name" placeholder="Enter Name">
+                        <input name="exampleInputName" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
                         <br />
                         <label for="exampleInputName">Email</label>
-                        <input type="text" class="form-control" id="Email" placeholder="Enter Email">
+                        <input type="text" class="form-control" id="Email" placeholder="Enter Email" required>
                         <br /> <br />
                         
                         <label for="exampleInputName">Password</label>

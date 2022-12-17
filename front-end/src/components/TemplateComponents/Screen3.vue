@@ -43,8 +43,7 @@ export default {
             list.length > 0 ? this.privacy = true : this.privacy = false;
             this.whiteList=[...list];
             let method="whiteList";
-            this.privacy?this.$store.commit('changeDraftDetails',method,this.whiteList):null;
-          
+            this.privacy?this.$store.commit('changeDraftDetails',[method,list]):null;
         },
         createProject() {
 
