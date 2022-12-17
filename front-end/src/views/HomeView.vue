@@ -1,13 +1,11 @@
 <template>
   <!-- header -->
   <div class="header-container">
-    <div class="header">
-      <div class="headerName">Blog</div>
-    </div>
+    <img class="header-img" src="../assets/Logo/Home.png" alt="">
     <div class="search stack-top">
-      <input v-model="message" placeholder="Search" style="margin-top: 180px;" />
+      <Button type='four' text="Write Blog" />
     </div>
-    <!-- <TrendingBlogList /> -->
+    <!-- <BlogList> -->
   </div>
 
   <!-- Blog Category -->
@@ -89,13 +87,38 @@
 </template>
 
 <script>
+import Button from '../components/Button.vue';
+import BlogPost from '../components/BlogPost.vue';
+
 // import TrendingBlogList from '../components/TrendingBlogList.vue'
-// export default {
-//   name: 'HomeView',
-//   components: {
-//     TrendingBlogList,
-//   },
-// };
+export default {
+  name: 'HomeView',
+  components: {
+    Button,
+    BlogPost
+  },
+  data() {
+    return {
+      sampleBlogPosts: [
+        {
+          title: "First Blog",
+          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          blogCoverPhoto: "First Image",
+        },
+        {
+          title: "Second Blog",
+          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          blogCoverPhoto: "Second Image",
+        },
+        {
+          title: "Third Blog",
+          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          blogCoverPhoto: "Third Image",
+        },
+      ]
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
 .header-container {
@@ -104,41 +127,27 @@
   align-items: center;
   flex-direction: column;
   height: 200px;
-  margin-top: 5%;
-}
+  margin-top: 4%;
 
-.header {
-  width: 80%;
-  height: 180px;
-  border-radius: 15px;
-  background-image: linear-gradient(90deg, #9BAFD9, #103783);
-}
+  .header-img {
+    width: 90%;
+  }
 
-.headerName {
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  color: white;
-  margin-top: 60px;
-  font-size: 30px;
-  font-weight: bolder;
-}
+  Button {
+    margin-top: 230px;
+    width: 200px;
+    font-size: large;
+    font-weight: bold;
+  }
 
-.search {
-  position: absolute;
-}
+  .search {
+    position: absolute;
+  }
 
-.stack-top {
-  z-index: 0;
-  margin: 20px;
-}
-
-.category-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin-top: 40px;
+  .stack-top {
+    z-index: 0;
+    margin: 20px;
+  }
 }
 
 .outer-category {
