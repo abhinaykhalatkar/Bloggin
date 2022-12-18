@@ -87,8 +87,7 @@ export default {
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 0 20px 3px #2d2d2d6f;
-  padding-left: 10%;
-  padding-top: 15%;
+
 
 }
 

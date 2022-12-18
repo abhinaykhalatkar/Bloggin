@@ -1,7 +1,7 @@
 <template>
   <BackDrop v-if="this.backDropActive" @click="toggleTemplateSelector" />
   <div class="app">
-    <Navigation/>
+  <Navigation/>
   </div>
   <TemplateSelector
     v-if="this.templateSelectorMenuOpen"
