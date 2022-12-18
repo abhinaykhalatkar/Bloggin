@@ -13,20 +13,20 @@
 
                     <div class="container">
                         <label for="exampleInputName">Name</label>
-                        <input name="exampleInputName" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
+                        <input name="exampleInputName" v-model="username" type="text" class="form-control" id="Name" placeholder="Enter Name" required>
                         <br />
                         <label for="exampleInputName">Email</label>
-                        <input type="text" class="form-control" id="Email" placeholder="Enter Email" required>
+                        <input type="text" class="form-control" v-model="email" id="Email" placeholder="Enter Email" required>
                         <br /> <br />
                         
                         <label for="exampleInputName">Password</label>
-                        <input type="password" class="form-control" id="Name" placeholder="Enter Password">
+                        <input type="password" class="form-control" v-model="password" id="Name" placeholder="Enter Password">
                         <br />
                         <label for="exampleInputName">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                        <input type="password" class="form-control" v-nodel="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
                         <br />
                         <br />
-                        <router-link :to="{ path: '/LoginView' }"><Button type="first" text="Register"></Button></router-link>
+                        <router-link :to="{ path: '/LoginView' }"><Button type="first" text="Register" @click="onRegister"></Button></router-link>
                         
                         <!-- <router-link :to="{ path: '/LoginView' }"><Button type="first" text="Register" /></router-link> -->
                         <router-link :to="{ path: '/LoginView' }"><Button type="second" text="Back" /></router-link>
@@ -55,11 +55,61 @@
 <script>
 import Button from '@/components/Button.vue';
 export default {
+    name: "Login",
+  data() {
+    return {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      isRegisterActive: false,
+      isRegistrationSuccessfull: false,
+    };
+  },
+    methods: {
+        async onRegister() {
+            this.isRegisterActive = !this.isRegisterActive;
+            const user = {
+                username: this.username,
+                email: this.email,
+                password: this.password,
+            };
+            console.log(user);
+            const res = await fetch(` http://localhost:5001/users`, {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify(user),
+            });
+            // let result = await axios.post("http://localhost:5001/users",{
+            //         email:this.email,
+            //         password:this.password,
+            //         name:this.name
+            //     });
+
+            // console.warn(result);
+            // if(result.status==201)
+            // {
+            //     localStorage.setItem("user-info",JSON.stringify(result.data))
+            //     this.$router.push({name:'Home'})
+            // }
+            
+        },
+        mounted() {
+        let user = localStorage.getItem('user-info');
+        if (!user) {
+            this.$router.push({name:'Registration'})
+        }
+    },
+    },
     components: {
         Button,
     }
-
 }
+
+    
+
 </script>
 
 

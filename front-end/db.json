@@ -35,14 +35,22 @@
     }
   ],
   "users": [{
-    "email":"testUser1",
-    "fullName":"testical test",
-    "id":1
+    "email": "test@gmail.com",
+    "password": "password",
+    "fullName": "testical test",
+    "id": 1
   },
   {
-    "email":"testUser2",
-    "fullName":"testical test",
-    "id":2
+    "email": "test2@gmail.com",
+    "password": "1234567890",
+    "fullName": "testical test",
+    "id": 2
+  },
+  {
+    "username": "MNZB N,",
+    "email": "ZX M",
+    "password": "ZXCN,M ",
+    "id": 3
   }
 ]
 }

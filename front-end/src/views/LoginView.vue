@@ -1,19 +1,19 @@
 <template>
   <div class="login-container">
     <div class="form-container">
-      <form>
+      <form @submit="login">
         <div class="header">
           <h3> Welcome to Bloggen!</h3>
         </div>
         <div class="email">
           <label for="uname"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="uname" required>
+          <input type="text" v-model="this.email" placeholder="Enter Email" name="uname" required>
         </div>
         <div class="password">
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" v-model="this.password" placeholder="Enter Password" name="psw" required>
         </div>
-        <Button type="first" text="Login"></Button>
+        <Button type="first"  text="Login"></Button>
         <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
         <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a>
           </router-link> </span>
@@ -27,13 +27,61 @@
 <script scoped>
 import Button from '@/components/Button.vue';
 export default {
+  name:"LoginView",
   components: {
     Button,
+  },
+  methods: {
+      async login(e) {
+        e.preventDefault();
+        const res = await fetch(`http://localhost:5001/users?email=${this.email}&password=${this.password}`, {
+              headers: {
+                "Content-type": "application/json",
+              }
+            });
+            let data=await res.json();
+            console.log(data)
+          // let result = await axios.get(
+          //     `http://localhost:5001/users?email=${this.email}&password=${this.password}`
+          // )
+
+          if(res.status==200)
+          {
+              localStorage.setItem("user-info",JSON.stringify(data[0]))
+              
+          }
+          console.log(res)
+      }
+  },
+  mounted() {
+      let user = localStorage.getItem('user-info');
+      if (user) {
+       
+      }
+  },
+  data() {
+      return {
+          email:'',
+          password:''
   }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  h3 {
+    color: #110476;
+  }
 .login-container {
   display: flex;
   flex-direction: row;
