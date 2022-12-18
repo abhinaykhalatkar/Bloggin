@@ -14,15 +14,15 @@ export default createStore({
       catagory:0
     },
     loginDetails:{
-      id:1,
-      userName:'Rachel Green',
+      id:null,
+      userName:'',
       isLoggedIn:false,
-      logInId:'testUser1@test.com',
-      writtenBlogs: "4",
-      readBlogs: "14",
-      writtenQuotes: "4",
-      appreciation: "38",
-      bio: "Writer, Traveller"
+      logInId:'',
+      writtenBlogs: "",
+      readBlogs: "",
+      writtenQuotes: "",
+      appreciation: "",
+      bio: ""
     }
   },
   mutations: {
@@ -36,6 +36,16 @@ export default createStore({
       state.currentDraftDetails.userId=null;
       state.currentDraftDetails.published=false;
       state.currentDraftDetails.catagory=0;
+    },
+    clearLoginDetails(state){
+      state.loginDetails.id='';
+      state.loginDetails.userName='';
+      state.loginDetails.isLoggedIn='';
+      state.loginDetails.logInId='';
+      state.loginDetails.writtenBlogs='';
+      state.loginDetails.readBlogs='';
+      state.loginDetails.appreciation='';
+      state.loginDetails.bio='';
     },
     setLoginDetails(state,payLoad){
      

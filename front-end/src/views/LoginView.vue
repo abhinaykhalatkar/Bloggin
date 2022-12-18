@@ -13,7 +13,7 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" v-model="this.password" placeholder="Enter Password" name="psw" required>
         </div>
-        <Button type="first"  text="Login"></Button>
+        <router-link :to="{ path: '/' }"><Button type="first" text="Log In"></Button></router-link>
         <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
         <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a>
           </router-link> </span>
@@ -55,6 +55,7 @@ export default {
               this.$store.commit('setLoginDetails',["writtenQuotes",data[0].writtenQuotes])
               this.$store.commit('setLoginDetails',["appreciation",data[0].appreciation])
               this.$store.commit('setLoginDetails',["bio",data[0].bio])
+              router.push('/')
           }
           console.log(data)
       }

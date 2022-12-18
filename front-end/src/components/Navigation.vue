@@ -11,7 +11,8 @@
                     <router-link class="link" to="/">Home</router-link>
                     <router-link class="link" to="/blogWriting">Write</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
-                    <router-link class="link" to="/login">Login</router-link>
+                    <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button @click="()=>{this.$store.commit('clearLoginDetails')}" type="first" text="Login"/></router-link>
+                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to="/"><Button type="second" @click="()=>{}" text="LogOut"/></router-link>
                     
                 </ul>
             </div>
@@ -29,11 +30,12 @@
 </template>
 
 <script>
+import Button from './Button.vue';
 // import menuIcon from '../assets/1.png';
 export default {
     name: 'navigation',
     components: {
-        // menuIcon
+        Button
     }
 };
 </script>
