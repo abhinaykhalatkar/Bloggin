@@ -67,8 +67,8 @@
   "users": [
     {
       "userName": "Rachel Green",
-      "isLoggedIn": true,
       "logInId": "testUser1@test.com",
+      "password":"password",
       "writtenBlogs": "4",
       "readBlogs": "14",
       "writtenQuotes": "4",

@@ -16,7 +16,7 @@ export default createStore({
     loginDetails:{
       id:1,
       userName:'Rachel Green',
-      isLoggedIn:true,
+      isLoggedIn:false,
       logInId:'testUser1@test.com',
       writtenBlogs: "4",
       readBlogs: "14",
@@ -37,6 +37,38 @@ export default createStore({
       state.currentDraftDetails.published=false;
       state.currentDraftDetails.catagory=0;
     },
+    setLoginDetails(state,payLoad){
+     
+      if(payLoad[0]=='id'){
+        state.loginDetails.id=payLoad[1];
+      }
+      else if(payLoad[0]=='userName'){
+        state.loginDetails.userName=payLoad[1];
+      }
+      else if(payLoad[0]=='isLoggedIn'){
+        state.loginDetails.isLoggedIn=payLoad[1];
+      }
+      else if(payLoad[0]=='logInId'){
+        state.loginDetails.logInId=payLoad[1];
+      }
+      else if(payLoad[0]=='writtenBlogs'){
+        state.loginDetails.writtenBlogs=payLoad[1];
+      }
+      else if(payLoad[0]=='readBlogs'){
+        state.loginDetails.readBlogs=payLoad[1];
+      }
+      else if(payLoad[0]=='writtenQuotes'){
+        state.loginDetails.writtenQuotes=payLoad[1];
+      }
+      else if(payLoad[0]=='appreciation'){
+        state.loginDetails.appreciation=payLoad[1];
+      }
+      else if(payLoad[0]=='bio'){
+        state.loginDetails.bio=payLoad[1];
+      }
+    }
+   
+    ,
     changeDraftDetails(state,payLoad){
      
       if(payLoad[0]=='projectName'){

@@ -41,16 +41,22 @@ export default {
             });
             let data=await res.json();
             console.log(data)
-          // let result = await axios.get(
-          //     `http://localhost:5001/users?email=${this.email}&password=${this.password}`
-          // )
 
-          if(res.status==200)
+
+          if(res.status==200 && data.length>0)
           {
               localStorage.setItem("user-info",JSON.stringify(data[0]))
-              
+              this.$store.commit('setLoginDetails',["id",data[0].id])
+              this.$store.commit('setLoginDetails',["userName",data[0].userName])
+              this.$store.commit('setLoginDetails',["isLoggedIn",true])
+              this.$store.commit('setLoginDetails',["logInId",data[0].logInId])
+              this.$store.commit('setLoginDetails',["writtenBlogs",data[0].writtenBlogs])
+              this.$store.commit('setLoginDetails',["readBlogs",data[0].readBlogs])
+              this.$store.commit('setLoginDetails',["writtenQuotes",data[0].writtenQuotes])
+              this.$store.commit('setLoginDetails',["appreciation",data[0].appreciation])
+              this.$store.commit('setLoginDetails',["bio",data[0].bio])
           }
-          console.log(res)
+          console.log(data)
       }
   },
   mounted() {
