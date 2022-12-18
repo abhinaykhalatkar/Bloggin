@@ -167,9 +167,10 @@ export default {
 
 
 .slider-ctr {
+  margin: auto;
   width: 0;
   /* width: 676px; */
-  height: 80%;
+  height: 88%;
   position: absolute;
   top: 42%;
   left: 50%;

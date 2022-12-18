@@ -46,7 +46,10 @@ export default {
   emits: ['cancel-template-selection','template-selection-menu']}
   </script>
 <style scoped>
-
+form{
+  margin: auto;
+  width: 0;
+}
 input,
 span,
 label,
