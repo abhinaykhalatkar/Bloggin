@@ -48,7 +48,10 @@ export default {
 <style scoped>
 form{
   margin: auto;
-  width: 0;
+
+  margin-top: 20%;
+    margin-left: 20%;
+
 }
 input,
 span,
