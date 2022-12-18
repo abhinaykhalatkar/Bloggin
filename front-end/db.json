@@ -1,0 +1,48 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "projectName": "",
+      "isPaid": false,
+      "isWhiteListed": false,
+      "whiteList": [],
+      "templateId": null,
+      "templateDeatils": {},
+      "userId": null,
+      "published": false,
+      "catagory": 0
+    },
+    {
+      "projectName": "asdasd",
+      "isPaid": true,
+      "isWhiteListed": true,
+      "whiteList": [
+        "asdf"
+      ],
+      "templateId": 2,
+      "templateDeatils": {},
+      "userId": 1,
+      "published": false,
+      "catagory": 0,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [{
+    "email":"testUser1",
+    "fullName":"testical test",
+    "id":1
+  },
+  {
+    "email":"testUser2",
+    "fullName":"testical test",
+    "id":2
+  }
+]
+}
