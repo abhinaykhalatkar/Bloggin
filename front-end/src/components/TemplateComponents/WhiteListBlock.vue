@@ -153,7 +153,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .container23 {
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
     width: 500px;

@@ -12,6 +12,16 @@ export default createStore({
       userId:null,
       published:false,
       catagory:0
+    },
+    loginDetails:{
+      userName:'Rachel Green',
+      isLoggedIn:true,
+      logInId:'testUser1@test.com',
+      writtenBlogs: "4",
+      readBlogs: "14",
+      writtenQuotes: "4",
+      appreciation: "38",
+      bio: "Writer, Traveller"
     }
   },
   mutations: {

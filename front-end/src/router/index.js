@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Registration from "../views/Registration.vue";
 import LoginView from "../views/LoginView";
 import Email from "../views/Email";
+import Subscription from "../views/Subscription";
 
 const routes = [
   {
@@ -26,9 +27,9 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/contactUs',
-    name: 'contactUs',
-    component: LoginView
+    path: '/Subscription',
+    name: 'Subscription',
+    component: Subscription
   },
   {
     path: '/aboutUs',
@@ -46,6 +47,13 @@ const routes = [
     component: function () {
       return import('../views/LoginView.vue')
     } 
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: function () {
+      return import('../views/ProfileView.vue')
+    }
   },
   {
     path: '/blogWriting',

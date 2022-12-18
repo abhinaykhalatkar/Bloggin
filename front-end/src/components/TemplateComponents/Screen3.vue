@@ -90,11 +90,12 @@ export default {
 }
 
 .slider-ctr {
-
+    margin: auto;
+    margin-top: 3%;
     width: 0;
     /* width: 676px; */
     height: 90%;
-    position: absolute;
+    
 
     box-sizing: border-box;
     overflow: hidden;

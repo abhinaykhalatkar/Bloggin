@@ -4,7 +4,7 @@
 
   </div>
   <div>
-    <img class="template4" :src="require('@/assets/Screen2Assets/Template.jpg')" alt="Placeholder image">
+    <img class="template4" :src="require('@/assets/Screen2Assets/Template1.jpg')" alt="Placeholder image">
 
     <div class="head"><br />
       <h2><a class="text-dark" href="#">How I went from selling food in the street to working for top firms in tech
@@ -179,10 +179,11 @@ export default {
 </script>
 <style>
 .template4 {
-  width: 80%;
-  height: 30%;
+  
   margin: auto;
   display: block;
+  overflow: scroll;
+  
 }
 
 .text-left {

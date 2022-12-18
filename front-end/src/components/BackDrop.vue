@@ -7,7 +7,7 @@ export default {
   name: "BackDrop"
 }
 </script>
-<style>
+<style scoped>
 div.transbox {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.242);
