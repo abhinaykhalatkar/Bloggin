@@ -1,5 +1,7 @@
 <template>
-<h1 contenteditable="true">template1</h1>
+<div class="columns-bg">
+
+</div>
 
 
 </template>
@@ -10,4 +12,10 @@ export default {
 }
 
 </script>
-<style></style>
+<style scoped>
+.columns-bg {
+  height: 100vh;
+  width: 100vw;
+    background-image: linear-gradient( to right, #99ccff, #99ccff 50%, #ffffff 50% );}
+
+</style>

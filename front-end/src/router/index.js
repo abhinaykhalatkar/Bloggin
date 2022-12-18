@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Registration from "../views/Registration.vue";
 import LoginView from "../views/LoginView";
 import Email from "../views/Email";
+import Subscription from "../views/Subscription";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/LoginView',
     name: 'Back',
     component: LoginView
+  },
+  {
+    path: '/Subscription',
+    name: 'Subscription',
+    component: Subscription
   },
   {
     path: '/aboutUs',
