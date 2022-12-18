@@ -49,6 +49,13 @@ const routes = [
     } 
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: function () {
+      return import('../views/ProfileView.vue')
+    }
+  },
+  {
     path: '/blogWriting',
     name: 'blogWriting',
     // route level code-splitting
