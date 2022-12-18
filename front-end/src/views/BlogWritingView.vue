@@ -46,7 +46,8 @@ export default {
   },
   props: {},
   methods: {},
-  emits:['open-create-in-blogWriting']
+  emits:['open-create-in-blogWriting'],
+ 
 
 };
 </script>

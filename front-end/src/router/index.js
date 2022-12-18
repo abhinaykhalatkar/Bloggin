@@ -30,10 +30,6 @@ const routes = [
     name: 'contactUs',
     component: LoginView
   },
-
-  
-  
- 
   {
     path: '/aboutUs',
     name: 'aboutUs',
@@ -60,7 +56,18 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/BlogWritingView.vue')
     }
-  }
+  },
+  {
+    path: `/templateEditor`,
+    name: 'templateEditor',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/TemplateEditor.vue')
+    }
+  },
+  
 ]
 
 const router = createRouter({

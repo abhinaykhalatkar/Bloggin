@@ -21,11 +21,11 @@ export default{
     data() {
     return {
       catagoryList:[
-      {id:'0',catagoryName:'Others'},
+      {id:'0',catagoryName:'Lifestyle'},
       {id:'1',catagoryName:'Science'},
       {id:'2',catagoryName:'Tech'},
       {id:'3',catagoryName:'Finance'},
-      {id:'4',catagoryName:'Lifestyle'}]
+      {id:'4',catagoryName:'Others'}]
     };
   },
   methods:{

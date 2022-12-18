@@ -7,7 +7,7 @@
     v-if="this.templateSelectorMenuOpen"
     @cancel-template-selection="toggleTemplateSelector"
   />
-  <router-view @open-create-in-blogWriting="toggleTemplateSelector" />
+  <router-view :key="$route.fullPath" @open-create-in-blogWriting="toggleTemplateSelector" />
   <Footer/>
 
 </template>

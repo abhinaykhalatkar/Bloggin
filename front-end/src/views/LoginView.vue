@@ -34,6 +34,8 @@
 import Button from '@/components/Button.vue';
 export default {
 components: {Button,
+ },mounted(){
+  // console.log(this.$route.fullPath)
  }
 
 };

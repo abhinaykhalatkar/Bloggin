@@ -4,7 +4,7 @@
       <Screen1 class="screen1" @template-selection-menu="nextScreen1"  @cancel-template-selection="$emit('cancel-template-selection')"/>
        
       <Screen2 class="screen2" />
-      <Screen3 class="screen3"/>
+      <Screen3 class="screen3" @close-template-selector="$emit('cancel-template-selection')"/>
     </div>
   </div>
 </template>

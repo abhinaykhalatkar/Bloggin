@@ -11,7 +11,9 @@
         <div class="buttonDiv">
 
             <Button @click="back" type='second' text="Back" />
-            <Button @click="createProject" style="margin-left: 410px" type='first' text="Done" />
+            <router-link class="link" to="/templateEditor">
+                <Button @click="createProject" style="margin-left: 410px" type='first' text="Done" />
+            </router-link>
         </div>
     </div>
 </template>
@@ -38,16 +40,17 @@ export default {
         WhiteListBlock,
         DropDownSelector
     },
+    emits:['closeTemplateSelector'],
     methods: {
         updateWhiteList(list) {
             list.length > 0 ? this.privacy = true : this.privacy = false;
             this.$store.commit('changeDraftDetails',["isWhiteListed",this.privacy])
             this.privacy?this.$store.commit('changeDraftDetails',["whiteList",list]):null;
         },
-        createProject() {
-            this.$store.commit('changeDraftDetails',["published",false]);
+        async createProject() {
+            // this.$store.commit('changeDraftDetails',["published",false]);
+            this.$emit('closeTemplateSelector')
             console.log(this.$store.state.currentDraftDetails)
-
         },
         emitFreePaid(val) {
             this.isPaid = !this.isPaid;
