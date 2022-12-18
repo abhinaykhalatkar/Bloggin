@@ -25,6 +25,12 @@ const routes = [
     name: 'Back',
     component: LoginView
   },
+  {
+    path: '/contactUs',
+    name: 'contactUs',
+    component: LoginView
+  },
+
   
   
  

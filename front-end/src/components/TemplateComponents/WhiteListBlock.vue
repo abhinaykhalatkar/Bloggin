@@ -25,7 +25,7 @@ export default {
             let newUsersArray=arrayOfUsers.length>0?arrayOfUsers.map(el=>el.title):[];
             
             this.whiteList = [...newUsersArray];
-            console.log(this.whiteList);
+    
         }
         ,
 
@@ -56,10 +56,8 @@ export default {
         })
         // console.log(inputEle)
 
-        if (window.localStorage.getItem("tasks")) {
-            arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"))
-        }
-        getTaskFromLocalStorage();
+       
+       
 
         submitEle.onclick = function () {
             if (inputEle.value !== "") {
@@ -78,7 +76,7 @@ export default {
             // console.log(arrayOfTasks);
             addTaskToPage(arrayOfTasks);
 
-            addTaskToLocalStorage(arrayOfTasks);
+            
         }
 
         function addTaskToPage(arrayOfTasks) {
@@ -102,17 +100,8 @@ export default {
         }
 
 
-        function addTaskToLocalStorage(arrayOfTasks) {
-            window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
-        }
-        function getTaskFromLocalStorage() {
-            let data = window.localStorage.getItem("tasks")
-            if (data) {
-                let tasks = JSON.parse(data);
-                // console.log(tasks)
-                addTaskToPage(tasks);
-            }
-        }
+     
+       
 
         function addElementsToPageFrom(arrayOfTasks) {
             // Empty Tasks Div
@@ -151,12 +140,10 @@ export default {
 
         function deleteTaskFromLocalStorage(taskId) {
             arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
-            addTaskToLocalStorage(arrayOfTasks);
         }
 
         deleteAll.onclick = function (e) {
             tasksDiv.innerHTML = "";
-            window.localStorage.removeItem("tasks");
             arrayOfTasks=[];
         }
 

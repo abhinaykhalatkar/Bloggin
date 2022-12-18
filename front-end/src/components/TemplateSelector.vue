@@ -2,7 +2,7 @@
   <div class="componentHTML">
     <div class="componentBody">
       <Screen1 class="screen1" @template-selection-menu="nextScreen1"  @cancel-template-selection="$emit('cancel-template-selection')"/>
-      
+       
       <Screen2 class="screen2" />
       <Screen3 class="screen3"/>
     </div>
@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       templateSelector:false,
+ 
     };
   },
   emits: ['cancel-template-selection'],
@@ -40,7 +41,9 @@ export default {
       
       }
       this.slide('.screen1',false,start)
+ 
     },
+
     slide(el,val, start=null) {
       gsap.fromTo(
         el,
@@ -57,6 +60,8 @@ export default {
   },
   mounted() {
   this.slideIn('.componentBody');
+  this.$store.commit('clearCurrentDraftState')
+ 
   },
 };
 </script> 

@@ -5,6 +5,7 @@
             <RedioButton class="redioBtn" leftText="For All" rightText="Selected User"
                 @redio-switched="toggleAddUser" />
         </div>
+        <DropDownSelector/>
         <WhiteListBlock v-if="this.whiteListOn" @update-white-list="updateWhiteList" />
 
         <div class="buttonDiv">
@@ -20,6 +21,7 @@ import Button from '../Button.vue';
 import WhiteListBlock from './WhiteListBlock.vue';
 import gsap from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
+import DropDownSelector from './DropDownSelector.vue';
 gsap.registerPlugin(CSSPlugin);
 export default {
     name: 'screen3',
@@ -28,36 +30,31 @@ export default {
             isPaid: false,
             whiteListOn: false,
             privacy: false,
-            whiteList:[],
         }
     },
     components: {
         RedioButton,
         Button,
-        WhiteListBlock
+        WhiteListBlock,
+        DropDownSelector
     },
     methods: {
         updateWhiteList(list) {
-            
-            console.log(list)
             list.length > 0 ? this.privacy = true : this.privacy = false;
-            this.whiteList=[...list];
-            let method="whiteList";
-            this.privacy?this.$store.commit('changeDraftDetails',[method,list]):null;
+            this.$store.commit('changeDraftDetails',["isWhiteListed",this.privacy])
+            this.privacy?this.$store.commit('changeDraftDetails',["whiteList",list]):null;
         },
         createProject() {
+            this.$store.commit('changeDraftDetails',["published",false]);
+            console.log(this.$store.state.currentDraftDetails)
 
         },
         emitFreePaid(val) {
             this.isPaid = !this.isPaid;
-            console.log(val)
-            this.$emit('isPaid', val)
-
+            this.$store.commit('changeDraftDetails',["isPaid",val])
         },
         toggleAddUser(val) {
             this.whiteListOn = !this.whiteListOn;
-            console.log(this.whiteListOn)
-            this.$emit('whitelistOn', val)
         },
         back() {
             const done = () => { this.slide('.screen2', true); }

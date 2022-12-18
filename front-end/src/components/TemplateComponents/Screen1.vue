@@ -11,8 +11,8 @@
         />
         <label for="nme"><span>Project name?</span></label>
        <div class="btnDiv">
-        <Button v-if="(name!='')"  type='first' text="Next"/>
-        <Button  @click="$emit('cancel-template-selection')" type='second' text="Cancel"/>
+        <Button v-if="(name!='')" @click=""  type='first' text="Next"/>
+        <Button   type='second' text="Cancel"/>
        </div>
       </form>
 </template>
@@ -34,7 +34,8 @@ export default {
   methods:{
     submitName(e){
         e.preventDefault()
-        this.$emit('template-selection-menu',e)
+        this.$store.commit('changeDraftDetails',["projectName",this.name])
+        this.$emit('template-selection-menu',e);
         gsap.fromTo(
         '.screenTitle',
         { css: {display:'none'} },

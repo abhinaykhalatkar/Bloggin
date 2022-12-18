@@ -3,7 +3,7 @@
 export default createStore({
   state: {
     currentDraftDetails:{
-      projectName:'hi',
+      projectName:'',
       isPaid:false,
       isWhiteListed:false,
       whiteList:[],
@@ -11,6 +11,7 @@ export default createStore({
       templateDeatils:{},
       userId:null,
       published:false,
+      catagory:0
     }
   },
   mutations: {
@@ -23,36 +24,38 @@ export default createStore({
       state.currentDraftDetails.templateDeatils={}
       state.currentDraftDetails.userId=null;
       state.currentDraftDetails.published=false;
-      console.log(state.currentDraftDetails);
+      state.currentDraftDetails.catagory=0;
     },
-    changeDraftDetails(state,dataName,payLoad){
-      console.log(dataName,payLoad);
-      if(dataName=='projectName'){
-        state.currentDraftDetails.projectName=payLoad;
+    changeDraftDetails(state,payLoad){
+     
+      if(payLoad[0]=='projectName'){
+        state.currentDraftDetails.projectName=payLoad[1];
       }
-      else if(dataName=='isPaid'){
-        state.currentDraftDetails.isPaid=payLoad;
+      else if(payLoad[0]=='isPaid'){
+        state.currentDraftDetails.isPaid=payLoad[1];
       }
-      else if(dataName=='isWhiteListed'){
-        state.currentDraftDetails.isWhiteListed=payLoad;
+      else if(payLoad[0]=='isWhiteListed'){
+        state.currentDraftDetails.isWhiteListed=payLoad[1];
       }
-      else if(dataName=='whiteList'){
-        console.log(payLoad);
-        // state.currentDraftDetails.whiteList=[...payLoad];
+      else if(payLoad[0]=='whiteList'){
+         state.currentDraftDetails.whiteList=[...payLoad[1]];
       }
-      else if(dataName=='templateId'){
-        state.currentDraftDetails.templateId=payLoad;
+      else if(payLoad[0]=='templateNo'){
+        state.currentDraftDetails.templateId=payLoad[1];
       }
-      else if(dataName=='templateDeatils'){
-        state.currentDraftDetails.templateDeatils={...payLoad}
+      else if(payLoad[0]=='templateDeatils'){
+        state.currentDraftDetails.templateDeatils={...payLoad[1]}
       }
-      else if(dataName=='userId'){
-        state.currentDraftDetails.userId=payLoad;
+      else if(payLoad[0]=='userId'){
+        state.currentDraftDetails.userId=payLoad[1];
       }
-      else if(dataName=='published'){
-        state.currentDraftDetails.published=payLoad;
+      else if(payLoad[0]=='published'){
+        state.currentDraftDetails.published=payLoad[1];
       }
-      console.log(state.currentDraftDetails);
+      else if(payLoad[0]=='catagory'){
+        state.currentDraftDetails.catagory=payLoad[1];
+      }
+
     }
    
 

@@ -84,3 +84,8 @@
   </div>
 </div>
 </template>
+<script>
+export default{
+  name:'subsciption'
+}</script>
+<style></style>

@@ -25,7 +25,7 @@ export default {
     TemplateSelector,
     BackDrop,
     Navigation,
-    Footer
+    Footer,
   },
   data() {
     return {
@@ -35,16 +35,17 @@ export default {
   },
   methods: {
     toggleTemplateSelector() {
+    
+    // this.templateSelectorMenuOpen?this.$store.commit('clearCurrentDraftState'):null
       this.templateSelectorMenuOpen
         ? this.slideOut(".componentBody", this.done)
         : this.templateSelectorMenuOpen = !this.templateSelectorMenuOpen;
-      this.backDropActive = !this.backDropActive;
+      this.backDropActive = !this.backDropActive
       // this.$store.dispatch("setProjectName")
       
     },
     done() {
-      this.templateSelectorMenuOpen = false;
-      this.$store.commit('clearCurrentDraftState')
+      this.templateSelectorMenuOpen = false
     },
     slideOut(el, done) {
       gsap.fromTo(
