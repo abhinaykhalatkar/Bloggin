@@ -12,7 +12,7 @@
         <label for="nme"><span>Project name?</span></label>
        <div class="btnDiv">
         <Button v-if="(name!='')" @click=""  type='first' text="Next"/>
-        <Button   type='second' text="Cancel"/>
+        <Button  @click="$emit('cancel-template-selection')" type='second' text="Cancel"/>
        </div>
       </form>
 </template>
