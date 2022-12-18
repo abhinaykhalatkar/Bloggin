@@ -10,7 +10,6 @@
                 <ul>
                     <router-link class="link" to="/">Home</router-link>
                     <router-link class="link" to="/blogWriting">Write</router-link>
-                    <router-link class="link" to="/contactUs">Contact Us</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
                     <router-link class="link" to="/login">Login</router-link>
                     
