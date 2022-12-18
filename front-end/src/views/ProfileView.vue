@@ -56,43 +56,80 @@
             <div class="card">
                 <img class="quote-img" src="../assets/1.png" alt="Avatar">
                 <div class="card-info">
-                    <button class="open-btn" @click="openForm()">New</button>
-                    <div class="form-popup" id="myForm">
-                        <form action="/action_page.php" class="form-container">
+                    <button class="open-btn" @click="openForm">New</button>
+                    <div class="form-popup" id="myForm" v-if="isModalOpen">
+                        <form @submit="preventSub" action="/action_page.php" class="form-container">
                             <h5>Write your thought here..</h5>
-
-                            <textarea id="textbox" name="quote" placeholder="Start writing" rows="8"
-                                cols="44"></textarea>
-                            <button type="submit" class="btn">Publish</button>
-                            <button type="button" class="btn cancel" @click="closeForm()">Close</button>
+                            <textarea id="textbox" name="quoteAdd" placeholder="Start writing" rows="8" cols="44"
+                                v-model="quoteAdd"></textarea>
+                            <Button type="second" text="Publish" @click="addQuote" />
+                            <Button type="first" text="Close" @click="closeForm" />
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="card" v-for="quote in this.user.quotes" style="border-style:solid; border-color:white">
+                <p class="newQuote">{{ quote }}</p>
             </div>
         </div>
     </div>
 </template>
     
 <script>
-import { object } from 'webidl-conversions';
+
 import BarChart from '../components/BarChart.vue'
+import Button from '../components/Button.vue'
 
 export default {
     name: 'ProfileView',
 
     components: {
-        BarChart
+        BarChart, Button
     },
     data() {
-        return { user: this.$store.state.loginDetails }
+        return {
+            user: this.$store.state.loginDetails,
+            isModalOpen: false,
+            quoteAdd: '',
+        }
     },
     methods: {
+        preventSub(e) {
+            e.preventDefault()
+        },
         openForm() {
-            document.getElementById("myForm").style.display = "block";
+            this.isModalOpen = true;
+
+            // document.getElementById("myForm").style.display = "block";
         },
         closeForm() {
-            document.getElementById("myForm").style.display = "none";
-        }
+
+            this.isModalOpen = false;
+            // document.getElementById("myForm").style.display = "none";
+        },
+        async addQuote() {
+
+
+
+
+            const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+            const dataRes = await data.json();
+            console.log(dataRes.quotes)
+            dataRes.quotes = [...dataRes.quotes, this.quoteAdd]
+            console.log(dataRes.quotes)
+            const res = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify(dataRes),
+            });
+            console.log(res)
+
+            // this.user.quotes = [...this.user.quotes, this.quoteAdd]
+            // alert("Quote added successfully!!");
+
+        },
     }
 }
 
@@ -108,6 +145,15 @@ export default {
     width: 10rem;
 }
 
+.newQuote {
+    width: 10rem;
+    height: 8rem;
+    border-color: #555;
+    border: 1.5px;
+    border-style: solid;
+    margin-top: -2rem;
+}
+
 .card-container {
     display: flex;
     justify-content: center;
@@ -115,35 +161,26 @@ export default {
     flex-direction: row;
     margin-top: 1rem;
     margin-right: 70rem;
+    margin-left: 17rem;
+    column-gap: 12rem;
+
 }
 
 .card {
     display: flex;
-
     margin-bottom: 10rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     transition: 0.3s;
     border-radius: 5px;
+
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
-/*
-    
-    All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 310). 
-            
-    The 'supports' rule will only run if your browser supports CSS grid.
-    
-    Flexbox and floats are used as a fallback so that browsers which don't support grid will still recieve a similar layout.
-    
-    */
-
-/* Base Styles */
 
 
 
@@ -317,7 +354,7 @@ img {
 
 /* The popup form - hidden by default */
 .form-popup {
-    display: none;
+    z-index: 2;
     position: absolute;
     right: 15px;
     border: 3px solid #f1f1f1;
@@ -362,7 +399,7 @@ img {
 /* Set a style for the submit/login button */
 .form-container .btn {
     background-color: #110476;
-    ;
+
     color: white;
     padding: 16px 20px;
     border: none;

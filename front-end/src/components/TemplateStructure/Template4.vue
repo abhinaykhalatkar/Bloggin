@@ -32,12 +32,6 @@
     <div class="mb-1 text-muted dateposted">Posted On July 31,2022</div>
     </div>
   </div>
-    
-
-
-
-
-
         <div class="fr4-2">
       <div class="card-body d-flex flex-column align-items-start">
         <strong class="d-inline-block mb-2 text-primary">Food</strong>
@@ -150,34 +144,31 @@
     </div>
   </div>
 
-
-
-  <div class="template">
-    <div class="row-10">
-
-      <div class="col-md-11">
-
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-
-
-
-
 </template>
 <script>
 export default {
   name: "template 4",
-  components: {}
+  components: {},
+  data(){
+    return {
+      templateDetails:{titleText:'travel'}
+    }
+  },
+  props:{
+    getTemplateDetails:null
+  },
+  updated(){
+    console.log(this.templateDetails)
+    this.$store.commit('changeDraftDetails',["templateDeatils",this.templateDetails])
+  }
 }
 
 </script>
 <style>
+textarea{
+  font-size:x-large;
+  font-weight:bolder;
+}
 .template4 {
   
   margin: auto;
