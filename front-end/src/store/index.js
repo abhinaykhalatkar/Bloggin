@@ -14,13 +14,14 @@ export default createStore({
       catagory:0
     },
     loginDetails:{
-      userName:'test test',
+      userName:'Rachel Green',
       isLoggedIn:true,
       logInId:'testUser1@test.com',
       writtenBlogs: "4",
       readBlogs: "14",
       writtenQuotes: "4",
       appreciation: "38",
+      bio: "Writer, Traveller"
     }
   },
   mutations: {
