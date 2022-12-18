@@ -57,7 +57,7 @@ export default {
 }
 .blogsPublished{
   
-background-color: #DD4A48;
+background-color: white;
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
 }

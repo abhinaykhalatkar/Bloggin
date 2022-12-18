@@ -30,7 +30,11 @@
                     <li><span class="profile-stat-count">{{ this.user.appreciation }}</span>
                         <h5>Appreciation</h5>
                     </li>
+                    <router-link :to="{ path: '/subscription' }"><Button type="First" text="Subscription" style="width: 20%;"/></router-link>
+                    
                 </ul>
+
+               
 
             </div>
 
@@ -56,7 +60,7 @@
             <div class="card">
                 <img class="quote-img" src="../assets/1.png" alt="Avatar">
                 <div class="card-info">
-                    <button class="open-btn" @click="openForm">New</button>
+                    <Button type="first" text="New" @click="openForm"/>
                     <div class="form-popup" id="myForm" v-if="isModalOpen">
                         <form @submit="preventSub" action="/action_page.php" class="form-container">
                             <h5>Write your thought here..</h5>
@@ -68,8 +72,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card" v-for="quote in this.user.quotes" style="border-style:solid; border-color:white">
-                <p class="newQuote">{{ quote }}</p>
+            <div class="card" style="border-style:solid; border-color:white" v-for="quote in quoteList">
+                <p class="newQuote" v-modal="quoteList">{{ quote }}</p>
             </div>
         </div>
     </div>
@@ -91,6 +95,8 @@ export default {
             user: this.$store.state.loginDetails,
             isModalOpen: false,
             quoteAdd: '',
+            quoteList: []
+
         }
     },
     methods: {
@@ -108,10 +114,6 @@ export default {
             // document.getElementById("myForm").style.display = "none";
         },
         async addQuote() {
-
-
-
-
             const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
             const dataRes = await data.json();
             console.log(dataRes.quotes)
@@ -124,13 +126,25 @@ export default {
                 },
                 body: JSON.stringify(dataRes),
             });
-            console.log(res)
+            console.log(res);
+            alert("Quote added successfully!!");
+
+
+            console.log(this.quoteList);
 
             // this.user.quotes = [...this.user.quotes, this.quoteAdd]
-            // alert("Quote added successfully!!");
+            // 
 
         },
+
+
+    },
+    async mounted() {
+        const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+        const dataRes = await data.json();
+        this.quoteList = dataRes.quotes;
     }
+
 }
 
 </script>
@@ -420,85 +434,6 @@ img {
     opacity: 1;
 }
 
-/* Media Query */
-
-@media screen and (max-width: 40rem) {
-    .profile {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 4rem 0;
-    }
-
-    .profile::after {
-        display: none;
-    }
-
-    .profile-image,
-    .profile-user-settings,
-    .profile-stats {
-        float: none;
-        width: auto;
-    }
-
-    .profile-image img {
-        width: 7.7rem;
-    }
-
-    .profile-user-settings {
-        flex-basis: calc(100% - 10.7rem);
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-    }
-
-    .profile-user-name {
-        font-size: 2.2rem;
-    }
-
-    .profile-edit-btn {
-        order: 1;
-        padding: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .profile-edit-btn {
-        margin-left: 0;
-    }
-
-    .profile-bio {
-        font-size: 1.3rem;
-        margin-top: 1.5rem;
-    }
-
-    .profile-edit-btn,
-    .profile-stats {
-        flex-basis: 100%;
-    }
-
-    .profile-stats {
-        order: 1;
-        margin-top: 1.5rem;
-    }
-
-    .profile-stats ul {
-        display: flex;
-        text-align: center;
-        padding: 1.2rem 0;
-        border-top: 0.1rem solid #dadada;
-        border-bottom: 0.1rem solid #dadada;
-    }
-
-    .profile-stats li {
-        font-size: 1.4rem;
-        flex: 1;
-        margin: 0;
-    }
-
-    .profile-stat-count {
-        display: block;
-    }
-}
 
 /* Spinner Animation */
 
