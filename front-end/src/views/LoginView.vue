@@ -1,119 +1,144 @@
 <template>
-    <div class="login">
-    
-  <div class="container">
-    <form>
-    <h1> Welcome to Bloggen!</h1>
-    <br/>
-    <br/>
-    <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    
-    <Button type="first" text="Login"></Button>
-    <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
-                        
-     <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a> </router-link> </span>
-     
-
-
-    </form>
-    <img class="loginImage" :src="require('@/assets/aboutUs/loginImage.jpg')" alt="Placeholder image">
-
+  <div class="login-container">
+    <div class="form-container">
+      <form>
+        <div class="header">
+          <h3> Welcome to Bloggen!</h3>
+        </div>
+        <div class="email">
+          <label for="uname"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="uname" required>
+        </div>
+        <div class="password">
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+        </div>
+        <Button type="first" text="Login"></Button>
+        <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
+        <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a>
+          </router-link> </span>
+      </form>
+    </div>
+    <div class="login-image">
+      <img class="image" :src="require('@/assets/aboutUs/loginImage.jpg')" alt="Placeholder image">
+    </div>
   </div>
-
-
-
-</div>
 </template>
-
 <script scoped>
 import Button from '@/components/Button.vue';
 export default {
-components: {Button,
- },mounted(){
-  // console.log(this.$route.fullPath)
- }
-
+  components: {
+    Button,
+  }
 };
 </script>
 
-<style scoped>
-form {
+<style lang="scss" scoped>
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  flex-wrap: nowrap;
 
-  border: 3px solid #f1f1f1;
-  width: 38rem;
-    height: 28rem;
-  margin-left: 15rem;
-  margin-top: 8rem;
+  .form-container {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-shadow: 3px 5px 5px #00000021;
+    border-radius: 15px;
+    padding: 70px 0px 70px 0px;
+  }
+
+  // .form{
+  //   display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // width: 50%;
+  // }
+  .login-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    width: 95%;
+  }
 }
 
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 15px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+// form {
+//   border: 3px solid #f1f1f1;
+//   width: 38rem;
+//   height: 28rem;
+//   margin-left: 15rem;
+//   margin-top: 8rem;
+// }
 
 
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
+// /* Full-width inputs */
+// input[type=text],
+// input[type=password] {
+//   width: 100%;
+//   padding: 12px 20px;
+//   margin: 15px 0;
+//   display: inline-block;
+//   border: 1px solid #ccc;
+//   box-sizing: border-box;
+// }
 
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
+// /* Add a hover effect for buttons */
+// button:hover {
+//   opacity: 0.8;
+// }
+
+// /* Extra style for the cancel button (red) */
+// .cancelbtn {
+//   width: auto;
+//   padding: 10px 18px;
+//   background-color: #f44336;
+// }
+
+// /* Center the avatar image inside this container */
+// .imgcontainer {
+//   text-align: center;
+//   margin: 24px 0 12px 0;
+// }
 
 /* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
+// img.avatar {
+//   width: 40%;
+//   border-radius: 50%;
+// }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-}
+// /* Add padding to containers */
+// .container {
+//   padding: 16px;
+// }
 
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 30px;
-}
+// /* The "Forgot password" text */
+// span.psw {
+//   float: right;
+//   padding-top: 30px;
+// }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+// /* Change styles for span and cancel button on extra small screens */
+// @media screen and (max-width: 300px) {
+//   span.psw {
+//     display: block;
+//     float: none;
+//   }
 
-  .loginImage{
-    width: 10%;
-    height: 40%;
-    margin-top: 8rem;
-}
+//   .cancelbtn {
+//     width: 100%;
+//   }
 
-  }
 
+
+// }
 </style>
