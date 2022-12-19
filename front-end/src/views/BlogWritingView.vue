@@ -47,7 +47,11 @@ export default {
   props: {},
   methods: {},
   emits:['open-create-in-blogWriting'],
- 
+  mounted() {
+    if(!this.$store.state.loginDetails.isLoggedIn){
+      this.$router.push('/LoginView')
+    }
+  },
 
 };
 </script>

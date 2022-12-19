@@ -12,9 +12,7 @@
                     <router-link class="link" to="/blogWriting">Write</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
                     <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button  type="first" text="Login"/></router-link>
-                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to=""><Button type="second" @click="()=>{
-                this.$store.commit('clearLoginDetails');
-                }" text="LogOut"/></router-link>
+                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to="/"><Button type="second" @click="logOut" text="LogOut"/></router-link>
                     
                 </ul>
             </div>
@@ -40,7 +38,10 @@ export default {
         Button
     },
     methods:{
-
+        logOut(){
+            this.$store.commit('clearLoginDetails')
+            localStorage.clear();
+        }
     }
 };
 </script>

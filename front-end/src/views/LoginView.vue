@@ -3,7 +3,7 @@
     <div class="form-container">
       <form >
         <div class="header">
-          <h6 v-if="this.$store.state.registrationDone"> Registration Done! Log In Now.</h6>
+          <h6 class="classRegDone" v-if="this.$store.state.registrationDone"> Registration Done! Log In Now.</h6>
           <h3> Welcome to Bloggen!</h3>
         </div>
         <div class="email">
@@ -14,7 +14,7 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" v-model="this.password" placeholder="Enter Password" name="psw" required>
         </div>
-        
+        <h6 class="loginWrong" v-if="this.logInWrong"> Wrong Password!!</h6>
         <Button @click="login" type="first" text="Log In"/>
         <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
         <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a>
@@ -37,6 +37,7 @@ export default {
       return {
           email:'',
           password:'',
+          logInWrong:false,
   }
   },
   methods: {
@@ -72,17 +73,19 @@ export default {
               this.$store.commit('setLoginDetails',["writtenQuotes",data[0].writtenQuotes])
               this.$store.commit('setLoginDetails',["appreciation",data[0].appreciation])
               this.$store.commit('setLoginDetails',["bio",data[0].bio])
-          
               this.$router.push('/')
-              this.$store.commit('setIsRegister',false)
-           
+              this.$store.commit('setIsRegister',false)           
+          }
+          else{
+            this.logInWrong=true;
           }
           
           
       }
   },
    mounted() {
-
+    this.logInWrong=false
+    
   },
 
 
@@ -90,6 +93,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.classRegDone{
+color: rgba(16, 182, 91, 0.911);
+margin-left: 20px;
+}
+
+.loginWrong{
+  margin-left: 20px;
+  color: rgba(202, 28, 28, 0.911);
+}
 
 input[type=text], input[type=password] {
     width: 100%;
