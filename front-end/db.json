@@ -68,7 +68,7 @@
     {
       "userName": "Rachel Green",
       "logInId": "testUser1@test.com",
-      "password":"password",
+      "password": "password",
       "writtenBlogs": "4",
       "readBlogs": "14",
       "writtenQuotes": "4",
@@ -76,17 +76,15 @@
       "bio": "Writer, Traveller",
       "quotes": [
         "Be yourself; everyone else is already taken.",
-        "So many books, so little time.",
-        "sdfsdf",
-        "test1"
+        "So many books, so little time."
       ],
       "id": 1,
       "newSub": {
-        "email": "trdtrdtrd",
-        "cardName": "abhinay",
-        "cardNumber": "srerersre",
-        "contact": "123414",
-        "planSelected": "12 Months",
+        "email": "shivani@gmail.com",
+        "cardName": "sfdsdfsdf",
+        "cardNumber": "12323123",
+        "contact": "+49 1898095-6",
+        "planSelected": "6 Months",
         "cardSelected": "Platinum"
       }
     }

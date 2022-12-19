@@ -86,7 +86,8 @@ export default {
         body: JSON.stringify(dataRes),
       });
       const data = await res.json();
-      console.log(data)
+      console.log(data);
+      alert("Subscribed Successfully!");
     }
   },
   data() {
@@ -101,7 +102,7 @@ export default {
       cardSelected: '',
       user: this.$store.state.loginDetails
     }
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

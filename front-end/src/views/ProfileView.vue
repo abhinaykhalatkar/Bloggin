@@ -30,7 +30,11 @@
                     <li><span class="profile-stat-count">{{ this.user.appreciation }}</span>
                         <h5>Appreciation</h5>
                     </li>
+                    <router-link :to="{ path: '/subscription' }"><Button type="First" text="Subscription" style="width: 20%;"/></router-link>
+                    
                 </ul>
+
+               
 
             </div>
 
@@ -430,85 +434,6 @@ img {
     opacity: 1;
 }
 
-/* Media Query */
-
-@media screen and (max-width: 40rem) {
-    .profile {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 4rem 0;
-    }
-
-    .profile::after {
-        display: none;
-    }
-
-    .profile-image,
-    .profile-user-settings,
-    .profile-stats {
-        float: none;
-        width: auto;
-    }
-
-    .profile-image img {
-        width: 7.7rem;
-    }
-
-    .profile-user-settings {
-        flex-basis: calc(100% - 10.7rem);
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-    }
-
-    .profile-user-name {
-        font-size: 2.2rem;
-    }
-
-    .profile-edit-btn {
-        order: 1;
-        padding: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .profile-edit-btn {
-        margin-left: 0;
-    }
-
-    .profile-bio {
-        font-size: 1.3rem;
-        margin-top: 1.5rem;
-    }
-
-    .profile-edit-btn,
-    .profile-stats {
-        flex-basis: 100%;
-    }
-
-    .profile-stats {
-        order: 1;
-        margin-top: 1.5rem;
-    }
-
-    .profile-stats ul {
-        display: flex;
-        text-align: center;
-        padding: 1.2rem 0;
-        border-top: 0.1rem solid #dadada;
-        border-bottom: 0.1rem solid #dadada;
-    }
-
-    .profile-stats li {
-        font-size: 1.4rem;
-        flex: 1;
-        margin: 0;
-    }
-
-    .profile-stat-count {
-        display: block;
-    }
-}
 
 /* Spinner Animation */
 
