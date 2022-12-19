@@ -87,6 +87,26 @@
         "planSelected": "6 Months",
         "cardSelected": "Platinum"
       }
+    },
+    {
+      "userName": "abhinay1@test.com",
+      "logInId": "test@test",
+      "password": "12345",
+      "writtenBlogs": "",
+      "readBlogs": "",
+      "writtenQuotes": "",
+      "appreciation": "",
+      "bio": "",
+      "quotes": [],
+      "newSub": {
+        "email": "",
+        "cardName": "",
+        "cardNumber": "",
+        "contact": "",
+        "planSelected": "",
+        "cardSelected": ""
+      },
+      "id": 2
     }
   ]
 }

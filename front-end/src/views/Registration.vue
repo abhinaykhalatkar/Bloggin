@@ -70,9 +70,23 @@ export default {
         async onRegister() {
             this.isRegisterActive = !this.isRegisterActive;
             const user = {
-                username: this.username,
-                email: this.email,
+                userName: this.username,
+                logInId: this.email,
                 password: this.password,
+                writtenBlogs: "",
+                readBlogs: "",
+                writtenQuotes: "",
+                appreciation: "",
+                bio: "",
+                quotes: [],
+      newSub: {
+        email: "",
+        cardName: "",
+        cardNumber: "",
+        contact: "",
+        planSelected: "",
+        cardSelected: ""
+      }
             };
             console.log(user);
             const res = await fetch(` http://localhost:5001/users`, {

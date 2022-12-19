@@ -11,8 +11,8 @@
                     <router-link class="link" to="/">Home</router-link>
                     <router-link class="link" to="/blogWriting">Write</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
-                    <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button @click="()=>{this.$store.commit('clearLoginDetails')}" type="first" text="Login"/></router-link>
-                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to="/"><Button type="second" @click="()=>{}" text="LogOut"/></router-link>
+                    <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button  type="first" text="Login"/></router-link>
+                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to=""><Button type="second" @click="()=>{this.$store.commit('clearLoginDetails')}" text="LogOut"/></router-link>
                     
                 </ul>
             </div>
