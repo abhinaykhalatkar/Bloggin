@@ -3,6 +3,7 @@
     <div class="form-container">
       <form >
         <div class="header">
+          <h6 v-if="this.$store.state.registrationDone"> Registration Done! Log In Now.</h6>
           <h3> Welcome to Bloggen!</h3>
         </div>
         <div class="email">
@@ -31,6 +32,12 @@ export default {
   name:"LoginView",
   components: {
     Button,
+  },
+  data() {
+      return {
+          email:'',
+          password:'',
+  }
   },
   methods: {
       async login(e) {
@@ -67,22 +74,18 @@ export default {
               this.$store.commit('setLoginDetails',["bio",data[0].bio])
           
               this.$router.push('/')
+              this.$store.commit('setIsRegister',false)
            
           }
           
           
       }
-      
   },
    mounted() {
-      
+
   },
-  data() {
-      return {
-          email:'',
-          password:''
-  }
-  },
+
+
 };
 </script>
 

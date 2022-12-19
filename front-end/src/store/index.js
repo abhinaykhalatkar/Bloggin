@@ -2,6 +2,7 @@
 
 export default createStore({
   state: {
+    registrationDone:false,
     currentDraftDetails:{
       projectName:'',
       isPaid:false,
@@ -26,6 +27,9 @@ export default createStore({
     }
   },
   mutations: {
+    setIsRegister(state,payload){
+      state.registrationDone=payload
+    },
     clearCurrentDraftState(state){
       state.currentDraftDetails.projectName='';
       state.currentDraftDetails.isPaid=false;

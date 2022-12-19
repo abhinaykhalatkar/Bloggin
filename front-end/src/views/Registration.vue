@@ -101,13 +101,14 @@ export default {
             //         password:this.password,
             //         name:this.name
             //     });
-
             // console.warn(result);
-            // if(result.status==201)
-            // {
-            //     localStorage.setItem("user-info",JSON.stringify(result.data))
-            //     this.$router.push({name:'Home'})
-            // }
+            if(res.status==201)
+            {
+                console.log(this.$store.state.registrationDone)
+                console.log(res.status)
+                this.$store.commit('setIsRegister',true)
+                console.log(this.$store.state.registrationDone)
+            }
             
         },
         mounted() {
