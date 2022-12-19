@@ -5,44 +5,46 @@
     </div>
     <div class="login-container">
       <div class="form-container">
-        <form>
+        <form @submit="addSubscription">
           <div class="header">
-            <h3> Welcome to Bloggen!</h3>
+            <h3> Subscription!</h3>
           </div>
           <div class="input-group">
             <label for="">Plans</label>
-            <select>
-              <option>3 Month</option>
-              <option>6 Month</option>
-              <option>12 Month</option>
+            <select v-model="planSelected">
+              <option disabled>Please select Plan</option>
+              <option v-for="(planItem, i) in planItems[0].select" :key="i" :value="planItem">
+                {{ planItem }}
+              </option>
             </select>
           </div>
           <div class="input-group">
-            <label for="psw"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="psw" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required v-model="email">
           </div>
           <div class="input-group">
-            <label for="uname"><b>Contact</b></label>
-            <input type="text" placeholder="Enter Contact" name="uname" required>
+            <label for="contact"><b>Contact</b></label>
+            <input type="text" placeholder="Enter Contact" name="contact" required v-model="contact">
           </div>
           <div class="input-group">
             <label for="">Card Type</label>
-            <select>
-              <option>Visa</option>
-              <option>Master</option>
-              <option>Platinum</option>
+            <select v-model="cardSelected">
+              <option disabled>Please select card</option>
+              <option v-for="(cardItem, i) in cardItems[0].select" :key="i" :value="cardItem">
+                {{ cardItem }}
+              </option>
             </select>
           </div>
           <div class="input-group">
-            <label for="psw"><b>Card Number</b></label>
-            <input type="text" placeholder="Enter card number" name="psw" required>
+            <label for="cardNumber"><b>Card Number</b></label>
+            <input type="text" placeholder="Enter card number" name="cardNumber" required v-model="cardNumber">
           </div>
           <div class="input-group">
-            <label for="uname"><b>Card Holder Name</b></label>
-            <input type="text" placeholder="Enter name" name="uname" required>
+            <label for="cardName"><b>Card Holder Name</b></label>
+            <input type="text" placeholder="Enter name" name="cardName" required v-model="cardName">
           </div>
           <Button type="first" text="Submit"></Button>
-          <router-link :to="{ path: '/Registration' }"><Button type="second" text="Cancel" /></router-link>
+          <router-link :to="{ path: '/profile' }"><Button type="second" text="Cancel" /></router-link>
           <span class="psw"> <router-link :to="{ path: '/Email' }">
             </router-link> </span>
         </form>
@@ -58,6 +60,47 @@ import Button from '@/components/Button.vue';
 export default {
   components: {
     Button,
+  },
+  methods: {
+    async addSubscription(e) {
+      e.preventDefault();
+      let newSub = {
+        email: this.email,
+        cardName: this.cardName,
+        cardNumber: this.cardNumber,
+        contact: this.contact,
+        planSelected: this.planSelected,
+        cardSelected: this.cardSelected,
+      }
+      const dataUser = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+      let dataRes = await dataUser.json()
+      console.log(dataRes)
+
+      dataRes = {...dataRes, newSub}
+      console.log(dataRes)
+      const res = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(dataRes),
+      });
+      const data = await res.json();
+      console.log(data)
+    }
+  },
+  data() {
+    return {
+      cardName: '',
+      cardNumber: '',
+      email: '',
+      contact: '',
+      planItems: [{ "select": ["3 Months", "6 Months", "12 Months"] }],
+      planSelected: '',
+      cardItems: [{ "select": ["Visa", "Master", "Platinum"] }],
+      cardSelected: '',
+      user: this.$store.state.loginDetails
+    }
   }
 };
 </script>

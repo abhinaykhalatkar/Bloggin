@@ -14,6 +14,7 @@ export default createStore({
       catagory:0
     },
     loginDetails:{
+      id:1,
       userName:'Rachel Green',
       isLoggedIn:true,
       logInId:'testUser1@test.com',

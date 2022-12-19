@@ -12,6 +12,7 @@
                     <router-link class="link" to="/blogWriting">Write</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
                     <router-link class="link" to="/login">Login</router-link>
+                    
                 </ul>
             </div>
         </nav>
@@ -50,7 +51,9 @@ header {
         .branding {
             display: flex;
             align-items: center;
-
+img{
+    width: 150px;
+}
             // .header {
             //     font-weight: 600;
             //     font-size: 24px;

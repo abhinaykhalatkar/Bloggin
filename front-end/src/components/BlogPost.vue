@@ -4,7 +4,7 @@
             <div>
                 <h2>{{ post.title }}</h2>
                 <p class="content-preview">{{ post.blogHTML }}</p>
-                <router-link class="link link-light" to="#">View the blog
+                <router-link class="view-blog" to="#">View the blog
                     <!-- <Arrow class="arrow arrow-light" /> -->
                 </router-link>
             </div>
@@ -41,7 +41,7 @@ export default {
         order: 2;
 
         div {
-            max-width: 375px;
+            // max-width: 375px;
             padding: 72px 24px;
 
             h2 {
@@ -59,11 +59,11 @@ export default {
 
             .content-preview {
                 font-size: 13px;
-                max-height: 24px;
-                width: 250px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+    max-height: 130px;
+    width: 627px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
             }
 
             .link {
@@ -71,20 +71,15 @@ export default {
                 align-items: center;
                 margin-top: 32px;
                 padding-bottom: 4px;
-                border-bottom: 1px solid transparent;
+                // border-bottom: 1px solid transparent;
                 transition: .5s ease-in all;
 
                 &:hover {
-                    border-bottom-color: #303030;
+                    // border-bottom-color: #000000;
                 }
             }
 
-            .link-light {
-                &:hover {
-                    border-bottom-color: #000000;
-
-                }
-            }
+            
         }
     }
 

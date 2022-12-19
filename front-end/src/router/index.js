@@ -27,8 +27,8 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/Subscription',
-    name: 'Subscription',
+    path: '/subscription',
+    name: 'subscription',
     component: Subscription
   },
   {
