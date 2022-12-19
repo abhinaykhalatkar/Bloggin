@@ -1,80 +1,128 @@
 
 <template>
-  <div class="foodText">
-    <h1>Food</h1>
-  </div>
-
-  <form class="container1">
-  <div class="heading">
-    <h3><a class="text-dark" href="#">How I went from selling food in the street to working for top firms in tech
-      </a>
-      <div class="mb-1 text-muted dateposted">
-        <h4>Posted On July 31,2022</h4>
-      </div>
-    </h3>
-  </div>
-
-  
-
-  <div class="container"> 
-    <div class="row">
-      <div class="col-sm-6 ">
-
-        <p class="card-text mb-auto">In this series of articles I want to share with you how I got into the world of
-          programming. I never went to university to study IT, but I found a way around it. If you like the series and
-          want to see a book out of this, please leave a comment below.
-
-          At the end of 2006, I arrived at a crossroads in my life. My hopes of becoming a secondary school
-          linguistics teacher had vanished in an instant, as several factors had come together and made it impossible
-          for me to continue with my studies.
-
-          Back in my hometown of Durazno, Uruguay, my wife was working long hours for a meager $160 (USD) a month.
-          Yes, that’s $1,920 a year. We had sacrificed our time together so I could become a teacher and get a better
-          job because we were dreaming of a better future.
-
-          The problem with dreams is they tend to vanish when you wake up, and life’s alarm clock had just gone off.
-
-          Because my career trajectory had suddenly strayed off course, I moved back to my hometown to figure out my
-          next steps. Needless to say, I was depressed at the way things were, and our living situation only made
-          things worse. It was good to be back with my wife, but the reasons for it were stressful.</p>
-        <div>― Alvaro Videla</div>
-      </div>
-    </div>
-  </div>
-  
-
-   <div class="one"> 
-    <h2><p class="font-weight-bold">I like to reinvent myself</p></h2>
-    <h6>Posted On July 31,2022</h6>
-   </div> 
-
-   <div class="two"> 
-    <h2>Everything is design</h2>
-    <h6>Posted On July 31,2022</h6>
-  </div>
-
-  <div class="three"> 
-    <h2>Its all about experience</h2>
-    <h6>Posted On July 31,2022</h6>
-   </div> 
-
-   
-  <div class="four"> 
-    <h2>This is not my code</h2>
-    <h6>Posted On July 31,2022</h6>
-   </div> 
-
-   
-  <div class="five"> 
-    <h2>Support Human Activity</h2>
-    <h6>Posted On July 31,2022</h6>
-   </div> 
-
-</form>
-
-<div> <img class="foodImage" :src="require('@/assets/Screen2Assets/Food.jpg')" alt="Placeholder image">
+<div id="content" class="site-content">
+<div id="blog-wrapper">
+<div class="blog-holder center-relative">
+<article id="post-1" class="blog-item-holder featured-post">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Crafting</a>
+</li>
+</ul>
 </div>
-
+<div class="entry-date published">February 12, 2016</div>
+<h2 class="entry-title">
+<a href="single.html">Whatever is begun in anger ends in shame</a>
+</h2>
+<div class="excerpt">
+Now when I had mastered the language of this water and had come to know every trifling feature that bordered the great river as familiarly as I knew the letters of the alphabet, I had made a valuable acquisition. I still keep in mind a certain wonderful sunset which I witnessed when and steamboating<a class="read-more" href="single.html"></a>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<article id="post-2" class="blog-item-holder">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<h2 class="entry-title">
+<a href="single.html">I like to reinvent myself</a>
+</h2>
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Science</a>
+</li>
+</ul>
+</div>
+<div class="entry-date published">February 12, 2016</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<article id="post-3" class="blog-item-holder">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<h2 class="entry-title">
+<a href="single.html">Everything is design</a>
+</h2>
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Art</a>
+</li>
+</ul>
+</div>
+<div class="entry-date published">February 12, 2016</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<article id="post-4" class="blog-item-holder">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<h2 class="entry-title">
+<a href="single.html">It’s all about experience</a>
+</h2>
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Life</a>
+</li>
+</ul>
+</div>
+<div class="entry-date published">February 12, 2016</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<article id="post-5" class="blog-item-holder">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<h2 class="entry-title">
+<a href="single.html">This is not my code</a>
+</h2>
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Coding</a>
+</li>
+</ul>
+</div>
+<div class="entry-date published">February 12, 2016</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+<article id="post-6" class="blog-item-holder">
+<div class="entry-content relative">
+<div class="content-1170 center-relative">
+<h2 class="entry-title">
+<a href="single.html">Support human activity</a>
+</h2>
+<div class="cat-links">
+<ul>
+<li>
+<a href="#">Advocacy</a>
+</li>
+</ul>
+</div>
+<div class="entry-date published">February 12, 2016</div>
+<div class="clear"></div>
+</div>
+</div>
+</article>
+</div>
+<div class="clear"></div>
+<div class="block load-more-holder">LOAD MORE ENTRIES</div>
+</div>
+<div class="featured-image-holder">
+<div class="featured-post-image" style="background-image: url(https://back.femininbio.com/attachments/2020/11/20/portrait/w800/23680-y2xsntf9e-a-milada-vigerova-1.jpg)"></div>
+</div>
+<div class="clear"></div>
+</div>
 </template>
 <script>
 export default {
@@ -85,56 +133,67 @@ export default {
 </script>
 
 <style scoped>
-.foodText {
-  text-align: -webkit-center;
+
+.site-content {
+    width: calc(100% - 100px);
+    margin-left: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    -webkit-transition: margin 0.3s ease;
+    -moz-transition: margin 0.3s ease;
+    -ms-transition: margin 0.3s ease;
+    -o-transition: margin 0.3s ease;
+    transition: margin 0.3s ease;
 }
-
-.foodImage{
-  position: absolute;
-height: 170%;
-width: 48%;
-top: 30%;
-left: 48%;
-
+.nicescroll-rails {
+    z-index: 2 
 }
-
-.container{
-  margin-left: 1%;
-  margin-bottom: 7%;
-  padding-right: 5%;
+#blog-wrapper {
+    width: 50%;
+    margin-left: 0;
+    float: left;
 }
-
-.container1 {
-  margin-bottom: 7%;
-  padding-left: 8%;
- 
-}
-
-.one{
-  margin-bottom: 7%;
+@media screen and (max-width: 1650px){
 
 }
-
-.two{
-  margin-bottom: 7%;
-
+.blog-holder {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.three{
-  margin-bottom: 7%;
-
-} 
-
-.four{
-  margin-bottom: 7%;
-
-} 
-
-.five{
-  margin-bottom: 7%;
-
-} 
-
+.blog-holder {
+    padding-top: 100px;
+    max-width: 470px;
+    padding-bottom: 85px;
+}
+.center-relative {
+    margin-left: auto;
+    margin-right: auto;
+}
+.blog-item-holder {
+    transition: .2s filter ease-in-out;
+    -webkit-transition: .2s -webkit-filter ease-in-out;
+}
+.featured-post {
+    padding-bottom: 105px;
+}
+.featured-image-holder {
+    width: 50%;
+    float: right;
+}
+.featured-post-image {
+    position: fixed;
+    height: 100%;
+    width: 50%;
+    width: calc(50% - 50px);
+    background-size: cover;
+    background-position: center center;
+}
+.clear {
+    clear: both;
+}
 </style>
 
 
