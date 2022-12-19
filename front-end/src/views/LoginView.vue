@@ -13,7 +13,8 @@
           <label for="psw"><b>Password</b></label>
           <input type="password" v-model="this.password" placeholder="Enter Password" name="psw" required>
         </div>
-        <router-link :to="{ path: '/' }"><Button type="first" text="Log In"></Button></router-link>
+        
+        <Button @click="login" type="first" text="Log In"/>
         <router-link :to="{ path: '/Registration' }"><Button type="second" text="Register" /></router-link>
         <span class="psw"> <router-link :to="{ path: '/Email' }"><a href="Email" text="Forgot Password?"> </a>
           </router-link> </span>
@@ -33,8 +34,8 @@ export default {
   },
   methods: {
       async login(e) {
-        e.preventDefault();
-        const res = await fetch(`http://localhost:5001/users?email=${this.email}&password=${this.password}`, {
+      
+        const res = await fetch(`http://localhost:5001/users?logInId=${this.email}&password=${this.password}`, {
               headers: {
                 "Content-type": "application/json",
               }
@@ -55,10 +56,15 @@ export default {
               this.$store.commit('setLoginDetails',["writtenQuotes",data[0].writtenQuotes])
               this.$store.commit('setLoginDetails',["appreciation",data[0].appreciation])
               this.$store.commit('setLoginDetails',["bio",data[0].bio])
-              router.push('/')
+          
+              this.$router.push('/')
+           
           }
+  
           console.log(data)
+          
       }
+      
   },
   mounted() {
       let user = localStorage.getItem('user-info');
