@@ -8,7 +8,7 @@ export default createStore({
       isWhiteListed:false,
       whiteList:[],
       templateId:null,
-      templateDeatils:{},
+      templateDetails:{},
       userId:null,
       published:false,
       catagory:0
@@ -31,7 +31,7 @@ export default createStore({
       state.currentDraftDetails.isWhiteListed=false;
       state.currentDraftDetails.whiteList=[];
       state.currentDraftDetails.templateId=null;
-      state.currentDraftDetails.templateDeatils={}
+      state.currentDraftDetails.templateDetails={}
       state.currentDraftDetails.userId=null;
       state.currentDraftDetails.published=false;
       state.currentDraftDetails.catagory=0;
@@ -53,8 +53,8 @@ export default createStore({
       else if(payLoad[0]=='templateNo'){
         state.currentDraftDetails.templateId=payLoad[1];
       }
-      else if(payLoad[0]=='templateDeatils'){
-        state.currentDraftDetails.templateDeatils={...payLoad[1]}
+      else if(payLoad[0]=='templateDetails'){
+        state.currentDraftDetails.templateDetails={...payLoad[1]}
       }
       else if(payLoad[0]=='userId'){
         state.currentDraftDetails.userId=payLoad[1];

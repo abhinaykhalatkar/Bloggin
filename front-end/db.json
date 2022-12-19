@@ -7,7 +7,7 @@
       "isWhiteListed": false,
       "whiteList": [],
       "templateId": null,
-      "templateDeatils": {},
+      "templateDetils": {},
       "userId": null,
       "published": false,
       "catagory": 0
@@ -20,11 +20,41 @@
         "asdf"
       ],
       "templateId": 2,
-      "templateDeatils": {},
+      "templateDetils": {},
       "userId": 1,
       "published": false,
       "catagory": 0,
       "id": 2
+    },
+    {
+      "projectName": "",
+      "isPaid": false,
+      "isWhiteListed": false,
+      "whiteList": [],
+      "templateId": 4,
+      "templateDetils": {
+        "titleText": "traveasdfl"
+      },
+      "userId": null,
+      "published": true,
+      "catagory": 0,
+      "id": 3
+    },
+    {
+      "projectName": "asdasd",
+      "isPaid": true,
+      "isWhiteListed": true,
+      "whiteList": [
+        "asdasd"
+      ],
+      "templateId": 4,
+      "templateDetils": {
+        "titleText": "test1"
+      },
+      "userId": null,
+      "published": true,
+      "catagory": "1",
+      "id": 4
     }
   ],
   "comments": [
@@ -34,15 +64,31 @@
       "postId": 1
     }
   ],
-  "users": [{
-    "email":"testUser1",
-    "fullName":"testical test",
-    "id":1
-  },
-  {
-    "email":"testUser2",
-    "fullName":"testical test",
-    "id":2
-  }
-]
+  "users": [
+    {
+      "userName": "Rachel Green",
+      "isLoggedIn": true,
+      "logInId": "testUser1@test.com",
+      "writtenBlogs": "4",
+      "readBlogs": "14",
+      "writtenQuotes": "4",
+      "appreciation": "38",
+      "bio": "Writer, Traveller",
+      "quotes": [
+        "Be yourself; everyone else is already taken.",
+        "So many books, so little time.",
+        "sdfsdf",
+        "test1"
+      ],
+      "id": 1,
+      "newSub": {
+        "email": "trdtrdtrd",
+        "cardName": "abhinay",
+        "cardNumber": "srerersre",
+        "contact": "123414",
+        "planSelected": "12 Months",
+        "cardSelected": "Platinum"
+      }
+    }
+  ]
 }
