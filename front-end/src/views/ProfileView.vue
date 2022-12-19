@@ -56,7 +56,7 @@
             <div class="card">
                 <img class="quote-img" src="../assets/1.png" alt="Avatar">
                 <div class="card-info">
-                    <button class="open-btn" @click="openForm">New</button>
+                    <Button type="first" text="New" @click="openForm"/>
                     <div class="form-popup" id="myForm" v-if="isModalOpen">
                         <form @submit="preventSub" action="/action_page.php" class="form-container">
                             <h5>Write your thought here..</h5>
@@ -68,8 +68,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card" v-for="quote in this.user.quotes" style="border-style:solid; border-color:white">
-                <p class="newQuote">{{ quote }}</p>
+            <div class="card" style="border-style:solid; border-color:white" v-for="quote in quoteList">
+                <p class="newQuote" v-modal="quoteList">{{ quote }}</p>
             </div>
         </div>
     </div>
@@ -91,6 +91,8 @@ export default {
             user: this.$store.state.loginDetails,
             isModalOpen: false,
             quoteAdd: '',
+            quoteList: []
+
         }
     },
     methods: {
@@ -108,10 +110,6 @@ export default {
             // document.getElementById("myForm").style.display = "none";
         },
         async addQuote() {
-
-
-
-
             const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
             const dataRes = await data.json();
             console.log(dataRes.quotes)
@@ -124,13 +122,25 @@ export default {
                 },
                 body: JSON.stringify(dataRes),
             });
-            console.log(res)
+            console.log(res);
+            alert("Quote added successfully!!");
+
+
+            console.log(this.quoteList);
 
             // this.user.quotes = [...this.user.quotes, this.quoteAdd]
-            // alert("Quote added successfully!!");
+            // 
 
         },
+
+
+    },
+    async mounted() {
+        const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+        const dataRes = await data.json();
+        this.quoteList = dataRes.quotes;
     }
+
 }
 
 </script>
