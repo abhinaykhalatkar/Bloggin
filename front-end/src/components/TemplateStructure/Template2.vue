@@ -1,139 +1,164 @@
 
 <template>
-<div id="content" class="site-content">
-<div id="blog-wrapper">
-<div class="blog-holder center-relative">
-<article id="post-1" class="blog-item-holder featured-post">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Crafting</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<h2 class="entry-title">
-<a href="single.html">Whatever is begun in anger ends in shame</a>
-</h2>
-<div class="excerpt">
-Now when I had mastered the language of this water and had come to know every trifling feature that bordered the great river as familiarly as I knew the letters of the alphabet, I had made a valuable acquisition. I still keep in mind a certain wonderful sunset which I witnessed when and steamboating<a class="read-more" href="single.html"></a>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-<article id="post-2" class="blog-item-holder">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<h2 class="entry-title">
-<a href="single.html">I like to reinvent myself</a>
-</h2>
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Science</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-<article id="post-3" class="blog-item-holder">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<h2 class="entry-title">
-<a href="single.html">Everything is design</a>
-</h2>
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Art</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-<article id="post-4" class="blog-item-holder">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<h2 class="entry-title">
-<a href="single.html">It’s all about experience</a>
-</h2>
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Life</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-<article id="post-5" class="blog-item-holder">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<h2 class="entry-title">
-<a href="single.html">This is not my code</a>
-</h2>
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Coding</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-<article id="post-6" class="blog-item-holder">
-<div class="entry-content relative">
-<div class="content-1170 center-relative">
-<h2 class="entry-title">
-<a href="single.html">Support human activity</a>
-</h2>
-<div class="cat-links">
-<ul>
-<li>
-<a href="#">Advocacy</a>
-</li>
-</ul>
-</div>
-<div class="entry-date published">February 12, 2016</div>
-<div class="clear"></div>
-</div>
-</div>
-</article>
-</div>
-<div class="clear"></div>
-<div class="block load-more-holder">LOAD MORE ENTRIES</div>
-</div>
-<div class="featured-image-holder">
-<div class="featured-post-image" style="background-image: url(https://back.femininbio.com/attachments/2020/11/20/portrait/w800/23680-y2xsntf9e-a-milada-vigerova-1.jpg)"></div>
-</div>
-<div class="clear"></div>
-</div>
+    <div id="content" class="site-content">
+        <div id="blog-wrapper">
+            <div class="blog-holder center-relative">
+                <article id="post-1" class="blog-item-holder featured-post">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <div class="cat-links">
+                                <ul>
+                                    <h3> {{this.templateDetails.titleText}}</h3>
+                                        
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{templateDeatils.date}}</div>
+                            <h2 class="entry-title">
+                                <a href="single.html">{{ this.templateDetails.header }}</a>
+                            </h2>
+                            <div class="excerpt">
+                              {{ this.templateDeatils.header2 }}<a class="read-more" href="single.html"></a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+                <article id="post-2" class="blog-item-holder">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <h2 class="entry-title">
+                                <a href="single.html">{{ thi.templateDeatils.header3 }}</a>
+                            </h2>
+                            <div class="cat-links">
+                                <ul>
+                                   <h2>{{ this.templateDeatils.header4 }}</h2>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ this.templateDeatils.date2 }}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+                <article id="post-3" class="blog-item-holder">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <h2 class="entry-title">
+                                <a href="single.html">{{ this.templateDeatils.header5 }}</a>
+                            </h2>
+                            <div class="cat-links">
+                                <ul>
+                                   <h3>{{ this.templateDeatils.header6 }}</h3>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ this.templateDeatils.date3 }}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+                <article id="post-4" class="blog-item-holder">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <h2 class="entry-title">
+                                <a href="single.html">  {{ this.templateDeatils.header7 }}            </a>
+                            </h2>
+                            <div class="cat-links">
+                                <ul>
+                                   <h3>{{ this.templateDeatils.header8 }}</h3>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ this.templateDeatils.date4 }}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+                <article id="post-5" class="blog-item-holder">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <h2 class="entry-title">
+                                <a href="single.html">{{ this.templateDeatils.header9 }}</a>
+                            </h2>
+                            <div class="cat-links">
+                                <ul>
+                                   <h3>{{ this.templateDeatils.header10 }}</h3>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ this.templateDeatils.date5 }}</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+                <article id="post-6" class="blog-item-holder">
+                    <div class="entry-content relative">
+                        <div class="content-1170 center-relative">
+                            <h2 class="entry-title">
+                                <a href="single.html">{{ this.templateDeatils.header11 }}</a>
+                            </h2>
+                            <div class="cat-links">
+                                <ul>
+                                   <h3>{{ this.templateDeatils.header12 }}</h3>
+                                </ul>
+                            </div>
+                            <div class="entry-date published">{{ this.templateDeatils.date6 }} </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="clear"></div>
+            <div class="block load-more-holder">{{ this.templateDeatils.header13 }}</div>
+        </div>
+        <div class="featured-image-holder">
+            <div class="featured-post-image"
+                style="background-image" :src="this.templateDetails.imageLink" alt="Placeholder iamge"></div>
+        </div>
+            </div>          
+        <div class="clear"></div>
+  
 </template>
 <script>
 export default {
-  name: "template2",
-  components: {}
+    name: "template2",
+    components: {},
+    data(){
+        return{
+            templateDetails:{
+titleText:'Entertainment',
+date: 'February 12, 2016',
+header:'Whatever is begun in anger ends in shame',
+header2:'  Now when I had mastered the language of this water and had come to know every trifling feature that bordered the great river as familiarly as I knew the letters of the alphabet, I had made a valuable acquisition. I still keep in mind a certain wonderful sunset which witnessed when and steamboating',
+header3:'I like to reinvent myself',
+header4:'Science',
+date2:'February 12, 2016',
+header5:'Everything is design',
+header6:'Art',
+date3:'February 12, 2016',
+
+header7:'It’s all about experience',
+header8:'Life',
+date4:'February 12, 2016',
+header9:'This is not my code',
+header10:'Coding',
+date5:'February 12, 2016',
+header11:'Support human activity',
+header12:'Advocacy',
+date7:'February 12, 2016',
+header13:'LOAD MORE ENTRIES',
+imageLink:'https://back.femininbio.com/attachments/2020/11/20/portrait/w800/23680-y2xsntf9e-a-milada-vigerova-1.jpg',
+            }
+        }
+    },
+    props:{
+    getTemplateDetails:null
+  },
+  updated(){
+    console.log(this.templateDetails)
+    this.$store.commit('changeDraftDetails',["templateDeatils",this.templateDetails])
+  }
 }
 
 </script>
 
 <style scoped>
-
 .site-content {
     width: calc(100% - 100px);
     margin-left: 100px;
@@ -145,17 +170,19 @@ export default {
     -o-transition: margin 0.3s ease;
     transition: margin 0.3s ease;
 }
+
 .nicescroll-rails {
-    z-index: 2 
+    z-index: 2
 }
+
 #blog-wrapper {
     width: 50%;
     margin-left: 0;
     float: left;
 }
-@media screen and (max-width: 1650px){
 
-}
+@media screen and (max-width: 1650px) {}
+
 .blog-holder {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -168,21 +195,26 @@ export default {
     max-width: 470px;
     padding-bottom: 85px;
 }
+
 .center-relative {
     margin-left: auto;
     margin-right: auto;
 }
+
 .blog-item-holder {
     transition: .2s filter ease-in-out;
     -webkit-transition: .2s -webkit-filter ease-in-out;
 }
+
 .featured-post {
     padding-bottom: 105px;
 }
+
 .featured-image-holder {
     width: 50%;
     float: right;
 }
+
 .featured-post-image {
     position: fixed;
     height: 100%;
@@ -191,6 +223,7 @@ export default {
     background-size: cover;
     background-position: center center;
 }
+
 .clear {
     clear: both;
 }
