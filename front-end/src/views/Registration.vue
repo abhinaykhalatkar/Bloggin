@@ -96,12 +96,6 @@ export default {
               },
               body: JSON.stringify(user),
             });
-            // let result = await axios.post("http://localhost:5001/users",{
-            //         email:this.email,
-            //         password:this.password,
-            //         name:this.name
-            //     });
-            // console.warn(result);
             if(res.status==201)
             {
                 console.log(this.$store.state.registrationDone)
