@@ -149,7 +149,7 @@ export default {
 
 </script>
     
-<style>
+<style scoped>
 .quotes {
     margin-left: 12rem;
 }

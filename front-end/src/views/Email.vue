@@ -24,7 +24,7 @@
 </template>
 
 
-<script scoped>
+<script>
 import Button from '@/components/Button.vue';
 
 export default
