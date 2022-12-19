@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="form-container">
-      <form @submit="login">
+      <form >
         <div class="header">
           <h3> Welcome to Bloggen!</h3>
         </div>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
       async login(e) {
-      
+      e.preventDefault()
         const res = await fetch(`http://localhost:5001/users?logInId=${this.email}&password=${this.password}`, {
               headers: {
                 "Content-type": "application/json",
@@ -46,7 +46,16 @@ export default {
 
           if(res.status==200 && data.length>0)
           {
-              localStorage.setItem("user-info",JSON.stringify(data[0]))
+            
+              localStorage.setItem("id",data[0].id)
+              localStorage.setItem("userName",data[0].userName)
+              localStorage.setItem("isLoggedIn",true)
+              localStorage.setItem("logInId",data[0].logInId)
+              localStorage.setItem("writtenBlogs",data[0].writtenBlogs)
+              localStorage.setItem("readBlogs",data[0].readBlogs)
+              localStorage.setItem("writtenQuotes",data[0].writtenQuotes)
+              localStorage.setItem("appreciation",data[0].appreciation)
+              localStorage.setItem("bio",data[0].bio)
               this.$store.commit('setLoginDetails',["id",data[0].id])
               this.$store.commit('setLoginDetails',["userName",data[0].userName])
               this.$store.commit('setLoginDetails',["isLoggedIn",true])
@@ -60,17 +69,13 @@ export default {
               this.$router.push('/')
            
           }
-  
-          console.log(data)
+          
           
       }
       
   },
-  mounted() {
-      let user = localStorage.getItem('user-info');
-      if (user) {
-       
-      }
+   mounted() {
+      
   },
   data() {
       return {

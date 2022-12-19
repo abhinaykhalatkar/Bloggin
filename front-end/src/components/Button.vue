@@ -47,7 +47,7 @@ button {
   overflow: hidden;
   margin: 20px;
   font-size: 17px;
-  z-index: 1;
+ 
   color: var(--color);
   border: 2px solid var(--color);
   border-radius: 15px;

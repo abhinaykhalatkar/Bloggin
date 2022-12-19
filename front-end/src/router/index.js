@@ -56,6 +56,13 @@ const routes = [
     }
   },
   {
+    path: '/templateEditor',
+    name: 'temmplateEditor',
+    component: function () {
+      return import('../views/TemplateEditor.vue')
+    }
+  },
+  {
     path: '/blogWriting',
     name: 'blogWriting',
     // route level code-splitting
@@ -66,21 +73,8 @@ const routes = [
     }
   },
   {
-    path: `/templateEditor`,
-    name: 'templateEditor',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/TemplateEditor.vue')
-    }
-  },
-  {
     path: `/readBlogs/:id`,
     name: 'templateEditor',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/ReadBlogs.vue')
     }

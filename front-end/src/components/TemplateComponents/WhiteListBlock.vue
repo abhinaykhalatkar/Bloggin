@@ -91,7 +91,16 @@ export default {
                 div.setAttribute("data-id", task.id);
                 div.appendChild(document.createTextNode(task.title));
                 let span = document.createElement("span");
-                span.className = "del";
+                span.className = "del1";
+                span.style.cssText =`
+                font-weight: bold;
+    font-size: 10px;
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right`
                 span.appendChild(document.createTextNode("Delete"))
                 div.appendChild(span);
                 tasksDiv.appendChild(div)
@@ -119,7 +128,7 @@ export default {
                 div.appendChild(document.createTextNode(task.title));
                 // Create Delete Button
                 let span = document.createElement("span");
-                span.className = "del";
+                span.className = "del1";
                 span.appendChild(document.createTextNode("Delete"));
                 // Append Button To Main Div
                 div.appendChild(span);
@@ -130,7 +139,7 @@ export default {
 
         // Click On Task Element
         tasksDiv.onclick = ((e) => {
-            if (e.target.classList.contains("del")) {
+            if (e.target.classList.contains("del1")) {
                 // e.target.parentElement.remove();
                 e.target.parentElement.remove();
                 deleteTaskFromLocalStorage(e.target.parentElement.getAttribute("data-id"));
@@ -230,15 +239,7 @@ export default {
     content: "";
 }
 
-.tasks .task span {
-    font-weight: bold;
-    font-size: 10px;
-    background-color: red;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    cursor: pointer;
-}
+
 
 .delete-all {
     width: calc(100% - 25px);

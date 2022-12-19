@@ -55,6 +55,21 @@ export default {
       );
     },
   },
+  mounted(){
+    let user = localStorage.getItem("id")
+
+      if (user) {
+        this.$store.commit('setLoginDetails',["id",localStorage.getItem("id")])
+              this.$store.commit('setLoginDetails',["userName",localStorage.getItem("userName")])
+              this.$store.commit('setLoginDetails',["isLoggedIn",localStorage.getItem("isLoggedIn")])
+              this.$store.commit('setLoginDetails',["logInId",localStorage.getItem("logInId")])
+              this.$store.commit('setLoginDetails',["writtenBlogs",localStorage.getItem("writtenBlogs")])
+              this.$store.commit('setLoginDetails',["readBlogs",localStorage.getItem("readBlogs")])
+              this.$store.commit('setLoginDetails',["writtenQuotes",localStorage.getItem("writtenQuotes")])
+              this.$store.commit('setLoginDetails',["appreciation",localStorage.getItem("appreciation")])
+              this.$store.commit('setLoginDetails',["bio",localStorage.getItem("bio")])
+      }
+  }
 };
 </script>
 

@@ -12,7 +12,9 @@
                     <router-link class="link" to="/blogWriting">Write</router-link>
                     <router-link class="link" to="aboutUs">About Us</router-link>
                     <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button  type="first" text="Login"/></router-link>
-                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to=""><Button type="second" @click="()=>{this.$store.commit('clearLoginDetails')}" text="LogOut"/></router-link>
+                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to=""><Button type="second" @click="()=>{
+                this.$store.commit('clearLoginDetails');
+                }" text="LogOut"/></router-link>
                     
                 </ul>
             </div>
@@ -36,6 +38,9 @@ export default {
     name: 'navigation',
     components: {
         Button
+    },
+    methods:{
+
     }
 };
 </script>
@@ -44,7 +49,7 @@ header {
     background-color: white;
     padding: 0 110px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.258), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    z-index: 99;
+    
 
     nav {
         display: flex;
