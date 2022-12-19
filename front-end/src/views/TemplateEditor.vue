@@ -6,10 +6,10 @@
   </div>
 
   <div class="templateSection">
-    <Template1 v-if="this.template == 1" />
-    <Template2 v-if="this.template == 2" />
-    <Template3 v-if="this.template == 3" />
-    <Template4 v-if="this.template == 4" />
+    <Template1 v-if="this.$store.state.currentDraftDetails.templateId == 1" />
+    <Template2 v-if="this.$store.state.currentDraftDetails.templateId == 2" />
+    <Template3 v-if="this.$store.state.currentDraftDetails.templateId == 3" />
+    <Template4 v-if="this.$store.state.currentDraftDetails.templateId == 4" />
   </div>
   </div>
 </template>
