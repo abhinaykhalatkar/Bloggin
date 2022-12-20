@@ -13,7 +13,7 @@
                     <router-link class="link" to="aboutUs">About Us</router-link>
                     <router-link  v-if="!this.$store.state.loginDetails.isLoggedIn" to="/login"><Button  type="first" text="Login"/></router-link>
                     <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to="/"><Button type="second" @click="logOut" text="LogOut"/></router-link>
-                    
+                    <router-link  v-if="this.$store.state.loginDetails.isLoggedIn" to="/profile"><img class="imgProfile" src="@/assets/Logo/profilePic.svg" alt=""></router-link>
                 </ul>
             </div>
         </nav>
@@ -46,6 +46,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.imgProfile{
+    height: 50px;
+    width: 50px;
+}
 header {
     background-color: white;
     padding: 0 110px;

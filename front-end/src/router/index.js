@@ -22,11 +22,6 @@ const routes = [
     component: Registration
   },
   {
-    path: '/LoginView',
-    name: 'Back',
-    component: LoginView
-  },
-  {
     path: '/subscription',
     name: 'subscription',
     component: Subscription
@@ -57,7 +52,7 @@ const routes = [
   },
   {
     path: '/templateEditor',
-    name: 'temmplateEditor',
+    name: 'templateEditor',
     component: function () {
       return import('../views/TemplateEditor.vue')
     }
@@ -74,7 +69,7 @@ const routes = [
   },
   {
     path: `/readBlogs/:id`,
-    name: 'templateEditor',
+    name: 'blogReader',
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/ReadBlogs.vue')
     }

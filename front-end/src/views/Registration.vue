@@ -26,10 +26,10 @@
                         <input type="password" class="form-control" v-nodel="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
                         <br />
                         <br />
-                        <router-link :to="{ path: '/LoginView' }"><Button type="first" text="Register" @click="onRegister"></Button></router-link>
+                        <router-link :to="{ path: '/login' }"><Button type="first" text="Register" @click="onRegister"></Button></router-link>
                         
                         <!-- <router-link :to="{ path: '/LoginView' }"><Button type="first" text="Register" /></router-link> -->
-                        <router-link :to="{ path: '/LoginView' }"><Button type="second" text="Back" /></router-link>
+                        <router-link :to="{ path: '/login' }"><Button type="second" text="Back" /></router-link>
 
 
 
