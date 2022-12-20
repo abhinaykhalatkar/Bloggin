@@ -1,7 +1,16 @@
 <template>
   <div class="Temp">
-    <h1>{{ this.templateDetails.titleText }}</h1>
-
+    <!-- <h1 v-if="this.templateDetails.titleText.add" 
+    :style="{'color':this.templateDetails.titleText.color,
+    'font-size':`${this.templateDetails.titleText.fontSize}px`}" >
+    {{ this.templateDetails.titleText.content}}</h1> -->
+<TemplateContent v-if="this.templateDetails.titleText.add" @editDetails="updateDetails"
+ type="h1" :componentData="
+{ 
+    textContent:this.templateDetails.titleText.content,
+    textColor:this.templateDetails.titleText.color,
+    fontSize:this.templateDetails.titleText.fontSize
+    }"/>
   </div>
   <div>
     <img class="template4" :src="this.templateDetails.imageLink" alt="Placeholder image">
@@ -61,13 +70,14 @@
 
 </template>
 <script>
+import TemplateContent from './templateEditableElements/TemplateContent.vue'
 export default {
   name: "template 4",
-  components: {},
+  components: {TemplateContent},
   data(){
     return {
-      templateDetails:{
-    titleText:'travel',
+    templateDetails:{
+    titleText:{content:'travel',color:'#ac0505',fontSize:'80',add:true},
     imageLink:'https://cdn.pixabay.com/photo/2021/01/30/20/42/buildings-5965278__480.jpg',
     auther:' Alvaro Videla',
     postDate:'July 31,2022',
@@ -88,10 +98,17 @@ export default {
   props:{
     getTemplateDetails:null
   },
-  updated(){
-    console.log(this.templateDetails)
-    this.$store.commit('changeDraftDetails',["templateDeatils",this.templateDetails])
+  methods:{
+    updateDetails(el1,el2,el3){
+      console.log(this.templateDetails.titleText.content)
+      this.templateDetails.titleText.content=el1;
+      this.templateDetails.titleText.color=el2;
+      this.templateDetails.titleText.fontSize=el3;
+      
+
+    }
   }
+  
 }
 
 </script>

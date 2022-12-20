@@ -1,10 +1,11 @@
 <template>
 <div class="templateSection">
-<NotFound404 v-if="template==0"/>
-<Template1 v-if="template==1"/>
-<Template2 v-if="template==2"/>
-<Template3 v-if="template==3"/>
+
+<Template1  :get-template-details="this.templateDetails" v-if="template==1"/>
+<Template2  :get-template-details="this.templateDetails" v-if="template==2"/>
+<Template3 :get-template-details="this.templateDetails" v-if="template==3"/>
 <Template4 :get-template-details="this.templateDetails" v-if="this.template==4"/>
+<NotFound404 v-if="template==0"/>
 </div>
 </template>
 <script>
@@ -19,7 +20,7 @@ export default {
   name: "readBlogView",
   data(){
     return{
-        template:0,
+        template:null,
         templateDetails:null
     }
   },
@@ -28,17 +29,24 @@ export default {
  
   async mounted(){
     console.log(this.$route.params.id)
-    const res = await fetch(`http://localhost:5001/blogs?id=${this.$route.params.id}`, {
+    const res = await fetch(`http://localhost:5001/blogs?id=${this.$route.params.id}&published=true`, {
         headers: {
           "Content-type": "application/json",
         }
       });
       const data = await res.json();
-      console.log(data);
-      this.template= await data[0].templateId
+      console.log(data)
+      if(data.length<1){
+        this.template=0;
+      }
+      else if(res.status==200){
+        this.template=data[0].templateId
+        this.templateDetails= data[0].templateDetails;
 
-      this.templateDetails= data[0].templateDetails;
-     console.log( this.template,this.templateDetails);
+      }else {
+        this.template=0;
+      }
+     
       
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="blankBlog" @click="$emit('open-create-blog')">
         <img src="https://thumbs.dreamstime.com/b/writing-memo-line-icon-writing-memo-line-icon-edit-document-file-linear-style-sign-mobile-concept-web-design-paper-pen-166163490.jpg" alt="">
-        <p>Blank DOCUMENT</p>
+        <p>New Project</p>
     </div>
   </template>
   <script>
@@ -14,8 +14,8 @@
   .blankBlog{
     border-radius: 5px;
     margin-right: 20px;
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 200px;
    
     background-color: #ffffff;
     transition: all .2s ease-in-out;

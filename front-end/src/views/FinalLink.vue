@@ -3,7 +3,7 @@
 	<div class="container__item">
 		<form class="form">
 			<input type="text" v-model="this.$store.state.currentPublishedLink"  class="form__field" />
-			<button type="button" class="btn btn--primary btn--inside uppercase">Copy</button>
+			<button @click="goToBlog" type="button" class="btn btn--primary btn--inside uppercase">Go</button>
 		</form>
 	</div>
 	
@@ -14,7 +14,12 @@
   </template>
   <script>
   export default {
-
+    methods:{
+        goToBlog(){
+            window.location.href = `${this.$store.state.currentPublishedLink}`;
+        }
+    }
+ 
   };
   </script>
   <style lang="scss" scoped>
@@ -68,7 +73,7 @@
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 .btn--inside {
-  margin-left: -96px;
+  margin-left: -80px;
 }
 
 .form__field {

@@ -1,7 +1,7 @@
 <template>
-    <div class="BlogTile">
+    <div @click="openBlog(details.published)" class="BlogTile">
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8wi1IY3dRbfrYI985q6-ACmIwyAbCfODW8w&usqp=CAU' alt="">
-        <p>{{details.name}}</p>
+        <p>{{details.projectName}}</p>
     </div>
   </template>
   <script>
@@ -9,10 +9,19 @@
   name: "BlogTile",
   props:{
     details:Object
+  },
+  methods:{
+    openBlog(published){
+      if(published){
+        this.$router.push(`/readBlogs/${this.details.id}`)
+      }
+      else if(!published){}
+    }
   }
 }
   </script>
   <style scoped>
+  
   .BlogTile{
     height: 185px;
     width: 185px;

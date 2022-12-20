@@ -48,6 +48,7 @@ export default {
             this.privacy?this.$store.commit('changeDraftDetails',["whiteList",list]):null;
         },
         async createProject() {
+            this.$store.commit('changeDraftDetails', ["userId", this.$store.state.loginDetails.logInId])
             // this.$store.commit('changeDraftDetails',["published",false]);
             this.$emit('closeTemplateSelector')
             console.log(this.$store.state.currentDraftDetails)

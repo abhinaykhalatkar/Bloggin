@@ -28,25 +28,27 @@ export default {
   },
   data() {
     return {
-      draftBlogs: [
-        { taskId: 1, name: "Black Holes and Gravity" },
-        { taskId: 2, name: "Hawkings rediations" },
-        { taskId: 3, name: "Dark Matter" },
-      ],
-      publishedBlogs: [
-        { taskId: 1, name: "PUBLISHED1" },
-        { taskId: 2, name: "PUBLISHED2" },
-        { taskId: 3, name: "PUBLISHED3" },
-      ],
+      draftBlogs: [],
+      publishedBlogs: [],
     };
   },
   props: {},
   methods: {},
   emits: ['open-create-in-blogWriting'],
-  mounted() {
+ async mounted() {
     if (!this.$store.state.loginDetails.isLoggedIn) {
       this.$router.push('/login')
+    }else{
+      const res = await fetch(`http://localhost:5001/blogs?userId=${this.$store.state.loginDetails.logInId}`, {
+              headers: {
+                "Content-type": "application/json",
+              }
+            });
+            let data=await res.json();
+            this.draftBlogs= data.filter((el)=>el.published==false)
+            this.publishedBlogs=data.filter((el)=>el.published==true)
     }
+    
   },
 
 };

@@ -33,7 +33,7 @@ export default {
   methods: {
 
     async publishOrDraft(val) {
-      this.$store.commit('changeDraftDetails', ["userId", this.$store.state.loginDetails.logInId])
+      
       val ? this.$store.commit('changeDraftDetails', ["published", val]) : null
       const res = await fetch(`http://localhost:5001/blogs`, {
         method: "POST",
