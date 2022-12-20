@@ -35,7 +35,7 @@
                 </div> -->
             </div>
             <div class="right">
-                <p>Copyrights 2021 All rights reserved</p>
+                <p>Copyrights 2022 All rights reserved</p>
             </div>
         </div>
     </footer>

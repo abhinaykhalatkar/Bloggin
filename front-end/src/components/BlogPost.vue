@@ -1,9 +1,16 @@
 <template>
-    <div class="blog-wrapper">
+    <div @click="openBlog" class="blog-wrapper">
         <div class="blog-content">
             <div>
-                <h2>{{ post.title }}</h2>
-                <p class="content-preview">{{ post.blogHTML }}</p>
+                <p>{{ post.userId }}</p>
+                <h2>{{ post.projectName }}</h2>
+                <p class="content-preview">{{ post.blogHTML }}In this series of articles I want to share with you how I
+                    got into the world of programming. I never went to university to study IT, but I found a way around
+                    it. If you like the series and want to see a book out of this, please leave a comment below. At the
+                    end of 2006, I arrived at a crossroads in my life. My hopes of becoming a secondary school
+                    linguistics teacher had vanished in an instant, as several factors had come together and made it
+                    impossible for me to continue with my studies. Back in my hometown of Durazno, Uruguay, my wife was
+                    working long hours for a meager $160 (USD) a month. Yes, that’s $1,920 a year.</p>
                 <router-link class="view-blog" to="#">View the blog
                     <!-- <Arrow class="arrow arrow-light" /> -->
                 </router-link>
@@ -13,6 +20,7 @@
             <img class="blog-image" src="../assets/2.jpg" alt="">
         </div>
     </div>
+
 </template>
 <script>
 // import Arrow from "../assets/dji_export_1654456504024.svg"
@@ -21,7 +29,26 @@ export default {
     props: ["post"],
     components: {
         // Arrow
-    }
+    },
+    methods: {
+        openBlog() {
+            if (this.post.isPaid == true) {
+                this.$router.push(`/subscription`)
+            } else {
+                this.$router.push(`/readBlogs/${this.post.id}`)
+            }
+        }
+    },
+    data(){
+        return{
+            user: this.$store.state.loginDetails
+        }
+    },
+    // async mounted() {
+    //     const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+    //     const dataRes = await data.json();
+    //     console.log(dataRes);
+    // }
 }
 </script>
 
@@ -59,11 +86,11 @@ export default {
 
             .content-preview {
                 font-size: 13px;
-    max-height: 130px;
-    width: 627px;
-    /* white-space: nowrap; */
-    overflow: hidden;
-    text-overflow: ellipsis;
+                max-height: 130px;
+                width: 627px;
+                /* white-space: nowrap; */
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .link {
@@ -79,7 +106,7 @@ export default {
                 }
             }
 
-            
+
         }
     }
 

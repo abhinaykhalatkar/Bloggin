@@ -43,7 +43,7 @@
             <label for="cardName"><b>Card Holder Name</b></label>
             <input type="text" placeholder="Enter name" name="cardName" required v-model="cardName">
           </div>
-          <Button type="first" text="Submit"></Button>
+          <router-link :to="{ path: '/' }"><Button type="first"  text="Submit"></Button></router-link>
           <router-link :to="{ path: '/profile' }"><Button type="second" text="Cancel" /></router-link>
           <span class="psw"> <router-link :to="{ path: '/Email' }">
             </router-link> </span>
