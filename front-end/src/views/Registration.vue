@@ -4,7 +4,7 @@
     <div class="container container1">
         <br />
         <form>
-            <h1> Welcome to Bloggen!</h1>
+            <h3> Welcome to Bloggen!</h3>
             <br />
             <br />
             <div class="row-10">
@@ -20,10 +20,10 @@
                         <br /> <br />
                         
                         <label for="exampleInputName">Password</label>
-                        <input type="password" class="form-control" v-model="password" id="Name" placeholder="Enter Password">
+                        <input type="password" class="form-control" v-model="password" id="Name" placeholder="Enter Password" required>
                         <br />
                         <label for="exampleInputName">Confirm Password</label>
-                        <input type="password" class="form-control" v-nodel="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                        <input type="password" class="form-control" v-nodel="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
                         <br />
                         <br />
                         <router-link :to="{ path: '/login' }"><Button type="first" text="Register" @click="onRegister"></Button></router-link>
@@ -126,14 +126,32 @@ export default {
 <style scoped>
 form {
 
-    border: 3px solid #f1f1f1;
+    border: 1px solid black;
     width: 40rem;
     height: 45rem;
-    margin-left: 15rem;
+    margin-right: 2rem;
     margin-top: 8rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-shadow: 3px 5px 5px #00000021;
+    border-radius: 15px;
+    padding: 70px 30px 70px 30px;
+    margin-bottom: 10%;
 }
+h3 {
+    color: #110476;
+  }
+
 .container1{
     display: flex;
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+
 }
 
 .registrationImage1{

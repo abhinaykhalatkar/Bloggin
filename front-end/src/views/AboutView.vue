@@ -1,12 +1,7 @@
 <template>
-  <div class="aboutUs">
+  <!-- <div class="aboutUs">
     <h1>This is an about page</h1>
-  </div>
-
-
-
-
-
+  </div> -->
 
   <div class="card">
     <div class="card-image">

@@ -27,10 +27,15 @@
       <div class="category">Personal</div>
     </div>
   </div>
+  
   <!-- <BlogList> -->
   <div class="blog-post">
-    <BlogPost :post="post" v-for="(post, index) in sampleBlogPosts" :key="index" />
+    <BlogPost :post="post" v-for="post in postBlogs" :key="post.id" />
   </div>
+  <div class="quote">
+        <h4>Life is a long lesson in humility</h4>
+        <p>Shivani</p>
+    </div>
 </template>
 
 <script>
@@ -40,35 +45,38 @@ import BlogPost from '../components/BlogPost.vue';
 // import TrendingBlogList from '../components/TrendingBlogList.vue'
 export default {
   name: 'HomeView',
+  
   methods: {
     select: function (event) {
       const targetId = event.currentTarget.id;
       console.log(targetId); // returns 'foo'
-    }
+    },
+    
   },
+  // async mounted() {
+  //       const data = await fetch(`http://localhost:5001/users/${this.$store.state.loginDetails.id}`);
+  //       const dataRes = await data.json();
+  //       console.log(dataRes);
+  //   },
+  async mounted(){
+    const res = await fetch(`http://localhost:5001/blogs?published=true`, {
+        headers: {
+          "Content-type": "application/json",
+        }
+      });
+      let data=await res.json();
+      console.log(data)
+    this.postBlogs = [...data];
+    console.log(this.postBlogs)
+  },
+ 
   components: {
     Button,
     BlogPost
   },
   data() {
     return {
-      sampleBlogPosts: [
-        {
-          title: "First Blog",
-          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          blogCoverPhoto: "First Image",
-        },
-        {
-          title: "Second Blog",
-          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          blogCoverPhoto: "Second Image",
-        },
-        {
-          title: "Third Blog",
-          blogHTML: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting, remaining essentially unchanged. It waspopularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          blogCoverPhoto: "Third Image",
-        },
-      ]
+      postBlogs:[]
     }
   }
 };
@@ -126,6 +134,19 @@ export default {
   line-height: 40px;
   font-size: 16px;
   font-weight: bold;
+}
+.quote{
+  display: flex;
+    height: 300px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color: #110476;
+    flex-direction: column;
+    p{
+      display: flex;
+    }
 }
 
 // .blog-post {
