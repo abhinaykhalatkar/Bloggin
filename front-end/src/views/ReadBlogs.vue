@@ -1,16 +1,19 @@
 <template>
 <div class="templateSection">
-<Template1 v-if="templateId==1"/>
-<Template2 v-if="templateId==2"/>
-<Template3 v-if="templateId==3"/>
+<NotFound404 v-if="template==0"/>
+<Template1 v-if="template==1"/>
+<Template2 v-if="template==2"/>
+<Template3 v-if="template==3"/>
 <Template4 :get-template-details="this.templateDetails" v-if="this.template==4"/>
 </div>
 </template>
 <script>
+import NotFound404 from '@/components/TemplateComponents/NotFound404.vue'
 import Template1 from '@/components/TemplateStructure/Template1.vue';
 import Template2 from '@/components/TemplateStructure/Template2.vue';
 import Template3 from '@/components/TemplateStructure/Template3.vue';
 import Template4 from '@/components/TemplateStructure/Template4.vue';
+
 
 export default {
   name: "readBlogView",
@@ -20,7 +23,7 @@ export default {
         templateDetails:null
     }
   },
-  components:{Template1,Template2,Template3,Template4
+  components:{Template1,Template2,Template3,Template4,NotFound404
 },
  
   async mounted(){

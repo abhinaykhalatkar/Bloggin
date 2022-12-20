@@ -3,6 +3,8 @@
 export default createStore({
   state: {
     registrationDone:false,
+  
+    currentPublishedLink:'No Link',
     currentDraftDetails:{
       projectName:'',
       isPaid:false,
@@ -29,6 +31,9 @@ export default createStore({
   mutations: {
     setIsRegister(state,payload){
       state.registrationDone=payload
+    },
+    setBlogLink(state,payload){
+      state.currentPublishedLink=payload
     },
     clearCurrentDraftState(state){
       state.currentDraftDetails.projectName='';

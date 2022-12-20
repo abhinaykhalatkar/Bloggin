@@ -1,22 +1,18 @@
 <template>
   <div class="blogWriting">
     <div class="blogsCreate">
-      <BlankBlog @open-create-blog="$emit('open-create-in-blogWriting')"/>
+      <BlankBlog @open-create-blog="$emit('open-create-in-blogWriting')" />
       <div class="blogsDraft" v-for="draft in draftBlogs" v-bind:key="draft.id">
         <BlogsTile v-bind:details="draft" />
       </div>
     </div>
-    <div class="blogsPublished">
+    <div class="blogsPublishedcon">
       <h3>Published Blogs</h3>
-        <div class="blogsDrafts">
-          <div
-        class="blogsDraft"
-        v-for="publishedBlog in publishedBlogs"
-        v-bind:key="publishedBlog.id"
-      >
-        <BlogsTile v-bind:details="publishedBlog" />
-      </div>
+      <div class="blogsPublished">
+        <div class="blogsDraft" v-for="publishedBlog in publishedBlogs" v-bind:key="publishedBlog.id">
+          <BlogsTile v-bind:details="publishedBlog" />
         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +27,7 @@ export default {
     BlogsTile,
   },
   data() {
-    return { 
+    return {
       draftBlogs: [
         { taskId: 1, name: "Black Holes and Gravity" },
         { taskId: 2, name: "Hawkings rediations" },
@@ -46,38 +42,47 @@ export default {
   },
   props: {},
   methods: {},
-  emits:['open-create-in-blogWriting'],
+  emits: ['open-create-in-blogWriting'],
   mounted() {
-    if(!this.$store.state.loginDetails.isLoggedIn){
-      this.$router.push('/LoginView')
+    if (!this.$store.state.loginDetails.isLoggedIn) {
+      this.$router.push('/login')
     }
   },
 
 };
 </script>
 <style scoped>
-.blogWriting{
-  text-align:center
+.blogWriting {
+  margin: 5%;
+  text-align: center;
+ 
+  height: 100vh;
 }
-.blogsPublished{
-  
-background-color: white;
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
+.blogsPublished {
+  margin-top: 10px;
+  height: 30vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-.blogsCreate,
+.blogsPublishedcon{
+  padding: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
 .blogsDrafts {
-  display: flex;
-  gap: 20px;
+  height: 40vh;
   padding: 30px;
 }
-.blogsCreate{
-  display: grid;
 
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+.blogsCreate {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 20px;
   padding: 30px;
 }
-
 </style>

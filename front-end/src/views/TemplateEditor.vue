@@ -33,6 +33,7 @@ export default {
   methods: {
 
     async publishOrDraft(val) {
+      this.$store.commit('changeDraftDetails', ["userId", this.$store.state.loginDetails.logInId])
       val ? this.$store.commit('changeDraftDetails', ["published", val]) : null
       const res = await fetch(`http://localhost:5001/blogs`, {
         method: "POST",
@@ -42,12 +43,17 @@ export default {
         body: JSON.stringify(this.$store.state.currentDraftDetails),
       });
       const data = await res.json();
+      if(data.published){
+        this.$store.commit('setBlogLink',`http://localhost:8080/#/readBlogs/${data.id}`);
+ 
+        this.$router.push('/publishedLink')
+      }
 
     }
   },
   mounted() {
+    console.log(this.$route.fullPath)
     this.template = this.$store.state.currentDraftDetails.templateId
-    console.log('hi')
   }
 }
 
